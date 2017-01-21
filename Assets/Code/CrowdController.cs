@@ -6,7 +6,8 @@ public class CrowdController : MonoBehaviour {
     public int[] jauges = new int[4]; //0 is calm, 1 is medium, 2 is big and 3 is DESTROY
 
     public GameObject beachZone;
-    public GameObject seaZone;
+    public GameObject UnderSeaZone;
+    public GameObject IntoSeaZone; 
     public GameObject skyZone;
 
     public float jaugesDropRate;
