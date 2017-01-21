@@ -58,7 +58,7 @@ public class WaterShader_H : MonoBehaviour {
             S_TextureCoordinates[i * 2] = texScrollerInfos[i].uvCoordinates.x;
             S_TextureCoordinates[(i * 2) +1] = texScrollerInfos[i].uvCoordinates.y;
         }
-        shader.SetFloatArray(shaderGiveTexScrollUVs, S_TextureCoordinates);
+        //shader.SetFloatArray(shaderGiveTexScrollUVs, S_TextureCoordinates);
        
     }
 
