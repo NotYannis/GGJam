@@ -1,4 +1,5 @@
 ﻿using UnityEngine;
+using System;
 using System.Collections;
 
 public class Waveling_Render : MonoBehaviour {
@@ -22,14 +23,16 @@ public class Waveling_Render : MonoBehaviour {
         state = EWavelingState.Spawned;
         sc_meshTrans = meshTrans.localScale;
         sc_psFoam = psFoamTrans.localScale;
+        meshTrans.localScale = Vector3.zero;
+        psFoamTrans.localScale = Vector3.zero;
     }
     void Start()
-    {
+    {      
 
     }
-	
-	// Update is called once per frame
-	void Update () {
+
+    // Update is called once per frame
+    void Update () {
        // Debug.Log(state);
         if (state == EWavelingState.Growing)
         {
@@ -38,12 +41,24 @@ public class Waveling_Render : MonoBehaviour {
             meshTrans.localScale = sc_meshTrans* Mathf.Lerp(scale,0, t_SecondsForGrowth/ SecondsForGrowth);
             psFoamTrans.localScale = sc_psFoam* Mathf.Lerp( scale,0, t_SecondsForGrowth/ SecondsForGrowth);
         }
-	}
+        else if (state == EWavelingState.Dying)
+        {
+            t_SecondsForGrowth -= Time.deltaTime;
+            if (t_SecondsForGrowth < 0) { return; }
+            meshTrans.localScale = sc_meshTrans * Mathf.Lerp(0, scale, t_SecondsForGrowth / SecondsForGrowth);
+            psFoamTrans.localScale = sc_psFoam * Mathf.Lerp(0, scale, t_SecondsForGrowth / SecondsForGrowth);
+        }
+    }
 
     public void Init(float sizeRel)
     {
         scale = Mathf.Lerp(ScaleRange.x, ScaleRange.y, sizeRel);
         t_SecondsForGrowth = SecondsForGrowth;
         state = EWavelingState.Growing;
+    }
+    public void Kill()
+    {
+        t_SecondsForGrowth = SecondsForGrowth;
+        state = EWavelingState.Dying;
     }
 }

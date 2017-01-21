@@ -39,7 +39,9 @@ public class SeaScript : MonoBehaviour {
                 crowd.UpdateJauges(waves[i].power);
                 waves.RemoveAt(i);
 
-                Destroy(wavesPH[i]);
+                wavesPH[i].transform.Find("Waveling").GetComponent<Waveling_Render>().Kill();
+                Destroy(wavesPH[i], 1f);
+               
                 wavesPH.RemoveAt(i);
             }
             else //Update wave position
