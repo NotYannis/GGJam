@@ -9,7 +9,7 @@ public class TimeOfDay : MonoBehaviour {
 
     float t_timeOfDay;
     float halfDay;
-    List<Material> materialsWithNightDayShader;
+    Dictionary<string,Material> materialsWithNightDayShader;
     Transform skyGradient;
 
 	// Use this for initialization
@@ -18,13 +18,13 @@ public class TimeOfDay : MonoBehaviour {
         skyGradient = transform.FindChild("SkyGradient");
 
         string shaderToLookFor = "Unlit/S_ImageOfTheNight";
-        materialsWithNightDayShader = new List<Material>();
+        materialsWithNightDayShader = new Dictionary<string, Material>();
         Renderer[] allObjects = UnityEngine.Object.FindObjectsOfType<Renderer>();
         foreach (Renderer r in allObjects)
         {
             if (r.material.shader.name == shaderToLookFor)
             {
-                materialsWithNightDayShader.Add(r.material);
+                materialsWithNightDayShader.Add(r.name, r.material);
                 r.material.SetTexture("_TimeOfDayLightColorRampTex", TimeOfDayLightColorRamp);
             }
         }
@@ -53,7 +53,7 @@ public class TimeOfDay : MonoBehaviour {
         }
 
 
-        foreach (Material mat in materialsWithNightDayShader)
+        foreach (Material mat in materialsWithNightDayShader.Values)
         {
             mat.SetFloat("_TimeOfDay",time);
         }
@@ -64,6 +64,15 @@ public class TimeOfDay : MonoBehaviour {
 
     }
 
+
+    public void Notify_EnteredScene(GameObject go)
+    {
+        materialsWithNightDayShader.Add(go.name, go.GetComponent<Renderer>().material);
+    }
+    public void Notify_ExitedScene(GameObject go)
+    {
+        materialsWithNightDayShader.Remove(go.name);
+    }
 
     public float GetTimeOfDay()
     {
