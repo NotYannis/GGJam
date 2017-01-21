@@ -1,15 +1,25 @@
 ﻿using UnityEngine;
 using System.Collections;
 
+[RequireComponent(typeof(Rigidbody2D))]
 public class MoveScript : MonoBehaviour {
+    public Vector3 velocity;
+    public Vector3 direction;
 
+    private Rigidbody2D rig;
 	// Use this for initialization
 	void Start () {
-	
+        rig = GetComponent<Rigidbody2D>();
 	}
 	
 	// Update is called once per frame
 	void Update () {
-	
+        rig.velocity = new Vector2(velocity.x * direction.x, velocity.y * direction.y);
 	}
+
+    public Vector2 nextStep()
+    {
+        Vector2 next = new Vector2(transform.position.x + rig.velocity.x, transform.position.y + rig.velocity.y);
+        return next;
+    }
 }

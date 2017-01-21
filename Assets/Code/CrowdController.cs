@@ -4,6 +4,7 @@ using System.Collections;
 
 public class CrowdController : MonoBehaviour {
     public int[] jauges = new int[4]; //0 is calm, 1 is medium, 2 is big and 3 is DESTROY
+    public MovingObjectCreator objectCreation;
 
     public GameObject beachZone;
     public GameObject UnderSeaZone;
@@ -13,11 +14,14 @@ public class CrowdController : MonoBehaviour {
     public float jaugesDropRate;
     private float jaugesDropCooldown;
 
+    private float intoSeaPopRate;
+    private float intoSeaPopCooldown;
+
+
     private Text jauge0;
     private Text jauge1;
     private Text jauge2;
     private Text jauge3;
-
 
 
     // Use this for initialization
@@ -26,6 +30,9 @@ public class CrowdController : MonoBehaviour {
         jauge1 = GameObject.Find("DEBUG/Jauge1").GetComponent<Text>();
         jauge2 = GameObject.Find("DEBUG/Jauge2").GetComponent<Text>();
         jauge3 = GameObject.Find("DEBUG/Jauge3").GetComponent<Text>();
+
+
+        objectCreation = GameObject.Find("GameScripts").GetComponent<MovingObjectCreator>();
     }
 
     // Update is called once per frame
@@ -46,6 +53,15 @@ public class CrowdController : MonoBehaviour {
             jaugesDropCooldown -= Time.deltaTime;
         }
         Debug();
+
+        if(intoSeaPopCooldown <= 0.0f)
+        {
+            CreateIntoSea();
+        }
+        else
+        {
+            intoSeaPopCooldown -= Time.deltaTime;
+        }
 	}
 
     public void UpdateJauges(float _wavePower)
@@ -67,6 +83,13 @@ public class CrowdController : MonoBehaviour {
             if (jauges[3] < 10) jauges[3]++;
         }
     }
+
+    public void CreateIntoSea()
+    {
+        intoSeaPopCooldown = Random.Range(10.0f, 20.0f);
+        objectCreation.CreateObject(Type.IntoSea, Schedule.Day);
+    }
+
 
     void Debug()
     {
