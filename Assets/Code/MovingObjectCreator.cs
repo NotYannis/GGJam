@@ -79,7 +79,7 @@ public class MovingObjectCreator : MonoBehaviour {
     public void CreateObject(Type type, Schedule schedule)
     {
         Vector3 positionMin, positionMax, position;
-        GameObject newObject = null;// = new GameObject();
+        GameObject newObject = null;
         
         switch (type)
         {
@@ -102,7 +102,6 @@ public class MovingObjectCreator : MonoBehaviour {
         }
 
         MovingObject newObjMove = newObject.GetComponent<MovingObject>();
-        Debug.Log(newObjMove);
         positionMin = newObjMove.bound.min;
         positionMax = newObjMove.bound.max;
 
@@ -111,6 +110,7 @@ public class MovingObjectCreator : MonoBehaviour {
         {
             position.x = 9.5f;
         }
+
         newObject.transform.position = position;
         newObjMove.type = type;
         newObjMove.schedule = schedule;
@@ -209,7 +209,6 @@ public class MovingObjectCreator : MonoBehaviour {
 
    public void DeleteParticularObject(MovingObject objectToDestroy)
     {
-        Debug.Log(objectToDestroy);
         switch (objectToDestroy.type)
         {
             case Type.CalmBeach:
