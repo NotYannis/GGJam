@@ -9,9 +9,10 @@
 	}
 	SubShader
 	{
-		Tags { "RenderType"="Opaque" }
+		Tags { "Queue" = "Transparent" "IgnoreProjector" = "True" "RenderType" = "Transparent" }
 		LOD 100
-
+		ZWrite Off
+		Blend SrcAlpha OneMinusSrcAlpha
 		Pass
 		{
 			CGPROGRAM
@@ -54,11 +55,10 @@
 			{
 				// sample the texture
 				fixed4 texCol = tex2D(_MainTex, i.uv);
-				fixed4 skyTint = tex2D(_TimeOfDayLightColorRampTex, fixed2(_TimeOfDay,0.5f));
+				fixed4 skyTint = tex2D(_TimeOfDayLightColorRampTex, fixed2(_TimeOfDay, _TimeOfDay));
 
 				fixed4 col = texCol;
-				col *= skyTint;
-
+				col.rgb *= skyTint.rgb;
 				return col;
 			}
 			ENDCG
