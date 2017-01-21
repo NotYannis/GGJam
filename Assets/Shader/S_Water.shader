@@ -3,6 +3,7 @@
 	Properties
 	{
 		_Color ("Color", Color) = (1,1,1,1)
+		_WaveMask("WaveMask", 2D) = "white" {}
 
 		_NormalTex1("NormalMap1", 2D) = "bump" {}
 		_NormalTex2("NormalMap2", 2D) = "bump" {}
@@ -40,6 +41,9 @@
 
 
 			fixed4 _Color;
+
+		uniform sampler2D _WaveMask;
+		uniform half4 _WaveMask_ST;
 
 		uniform sampler2D _NormalTex1;
 		uniform sampler2D _NormalTex2;
