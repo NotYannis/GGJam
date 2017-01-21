@@ -5,6 +5,8 @@ using System.Collections.Generic;
 public class TimeOfDay : MonoBehaviour {
     public float GameStartingHour = 10;
     public float fullDayCycleDuration = 5.0f;
+    public float Dayrise = 6;
+    public float NightfallHour = 18.5f;
     public Texture TimeOfDayLightColorRamp;
 
     float t_timeOfDay;
