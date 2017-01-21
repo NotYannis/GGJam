@@ -3,9 +3,11 @@ using System.Collections;
 using System.Collections.Generic;
 
 public class TimeOfDay : MonoBehaviour {
+    public float GameStartingHour = 10;
     public float fullDayCycleDuration = 5.0f;
+    public float Dayrise = 6;
+    public float NightfallHour = 18.5f;
     public Texture TimeOfDayLightColorRamp;
-    public Vector2 skyGradientYHeights;
 
     float t_timeOfDay;
     float halfDay;
@@ -13,9 +15,7 @@ public class TimeOfDay : MonoBehaviour {
     Transform skyGradient;
 
 	// Use this for initialization
-	void Start () {
-
-        skyGradient = transform.FindChild("SkyGradient");
+	void Awake () {
 
         string shaderToLookFor = "Unlit/S_ImageOfTheNight";
         materialsWithNightDayShader = new Dictionary<string, Material>();
@@ -30,6 +30,7 @@ public class TimeOfDay : MonoBehaviour {
         }
 
         halfDay = fullDayCycleDuration / 2;
+        t_timeOfDay += (fullDayCycleDuration / 24) * GameStartingHour;
     }
 
     // Update is called once per frame
@@ -45,11 +46,11 @@ public class TimeOfDay : MonoBehaviour {
         float time;
         if (t_timeOfDay > halfDay)
         {
-            time = Mathf.Lerp(1, 0, (t_timeOfDay - halfDay) / halfDay);
+            time = Mathf.Lerp(0, 1, (t_timeOfDay - halfDay) / halfDay);
         }
         else
         {
-            time = Mathf.Lerp(0, 1, (t_timeOfDay) / halfDay);
+            time = Mathf.Lerp(1, 0, (t_timeOfDay) / halfDay);
         }
 
 
@@ -58,10 +59,7 @@ public class TimeOfDay : MonoBehaviour {
             mat.SetFloat("_TimeOfDay",time);
         }
 
-        Vector3 skyGradPos = skyGradient.position;
-        skyGradPos.y = Mathf.Lerp(skyGradientYHeights.x, skyGradientYHeights.y, time);
-        skyGradient.position = skyGradPos;
-
+      //  Debug.Log(GetHour());
     }
 
 
@@ -77,5 +75,9 @@ public class TimeOfDay : MonoBehaviour {
     public float GetTimeOfDay()
     {
         return t_timeOfDay / fullDayCycleDuration;
+    }
+    public float GetHour()
+    {
+        return 24.0f * (GetTimeOfDay());
     }
 }
