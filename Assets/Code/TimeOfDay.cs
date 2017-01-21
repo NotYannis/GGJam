@@ -3,9 +3,9 @@ using System.Collections;
 using System.Collections.Generic;
 
 public class TimeOfDay : MonoBehaviour {
+    public float GameStartingHour = 10;
     public float fullDayCycleDuration = 5.0f;
     public Texture TimeOfDayLightColorRamp;
-    public Vector2 skyGradientYHeights;
 
     float t_timeOfDay;
     float halfDay;
@@ -13,9 +13,7 @@ public class TimeOfDay : MonoBehaviour {
     Transform skyGradient;
 
 	// Use this for initialization
-	void Start () {
-
-        skyGradient = transform.FindChild("SkyGradient");
+	void Awake () {
 
         string shaderToLookFor = "Unlit/S_ImageOfTheNight";
         materialsWithNightDayShader = new Dictionary<string, Material>();
@@ -30,6 +28,7 @@ public class TimeOfDay : MonoBehaviour {
         }
 
         halfDay = fullDayCycleDuration / 2;
+        t_timeOfDay += (fullDayCycleDuration / 24) * GameStartingHour;
     }
 
     // Update is called once per frame
@@ -58,10 +57,7 @@ public class TimeOfDay : MonoBehaviour {
             mat.SetFloat("_TimeOfDay",time);
         }
 
-        Vector3 skyGradPos = skyGradient.position;
-        skyGradPos.y = Mathf.Lerp(skyGradientYHeights.x, skyGradientYHeights.y, time);
-        skyGradient.position = skyGradPos;
-
+      //  Debug.Log(GetHour());
     }
 
 
@@ -77,5 +73,9 @@ public class TimeOfDay : MonoBehaviour {
     public float GetTimeOfDay()
     {
         return t_timeOfDay / fullDayCycleDuration;
+    }
+    public float GetHour()
+    {
+        return 24.0f * (GetTimeOfDay());
     }
 }
