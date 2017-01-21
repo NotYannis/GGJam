@@ -31,6 +31,8 @@ public class MovingObject : MonoBehaviour {
     public Schedule schedule;
     protected MoveScript move;
 
+    private MovingObjectCreator objectCreator;
+
     public float xLeftDir;
     public float xRightDir;
     public float yDownDir;
@@ -41,15 +43,13 @@ public class MovingObject : MonoBehaviour {
     public float moveRefresh;
     private float moveRefreshCooldown;
 
-    private Bounds bound;
+    public Bounds bound;
 
     void Awake()
     {
+        objectCreator = GameObject.Find("GameScripts").GetComponent<MovingObjectCreator>();
         move = gameObject.GetComponent<MoveScript>();
-    }
 
-	// Use this for initialization
-	void Start () {
         switch (type)
         {
             case Type.CalmBeach:
@@ -57,6 +57,7 @@ public class MovingObject : MonoBehaviour {
             case Type.StrongBeach:
                 move.velocity = new Vector2(1.0f, 1.0f);
                 bound = GameObject.Find("Beach").GetComponent<BoxCollider2D>().bounds;
+                Debug.Log(bound.min);
                 break;
             case Type.CalmUnderSea:
             case Type.MediumUnderSea:
@@ -65,15 +66,19 @@ public class MovingObject : MonoBehaviour {
                 bound = GameObject.Find("UnderSea").GetComponent<BoxCollider2D>().bounds;
                 break;
             case Type.Sky:
-                move.velocity = new Vector2(1.0f, 0.5f);
+                move.velocity = new Vector2(1.0f, 1.0f);
                 bound = GameObject.Find("Sky").GetComponent<BoxCollider2D>().bounds;
                 break;
             case Type.IntoSea:
-                move.velocity = new Vector2(1.0f, 0.5f);
+                move.velocity = new Vector2(1.0f, 1.0f);
                 bound = GameObject.Find("IntoSea").GetComponent<BoxCollider2D>().bounds;
-                Debug.Log("min : " + bound.min + " , max :" + bound.max);
                 break;
         }
+    }
+
+	// Use this for initialization
+	void Start () {
+
 	}
 	
 	// Update is called once per frame
@@ -105,18 +110,25 @@ public class MovingObject : MonoBehaviour {
 
     private void CheckBounds()
     {
-        if(move.nextStep().x > bound.max.x || move.nextStep().x < bound.min.x)
-        {
-            Debug.Log("change move on x");
-            move.direction.x *= -1;
-            moveRefreshCooldown = Random.Range(moveRefresh, moveRefresh * 2.0f);
-        }
-        if (move.nextStep().y > bound.max.y || move.nextStep().y < bound.min.y)
+        Vector2 nextStep = move.nextStep();
+        if (nextStep.y > bound.max.y || nextStep.y < bound.min.y)
         {
             move.direction.y *= -1;
-            Debug.Log("change move on y");
             moveRefreshCooldown = Random.Range(moveRefresh, moveRefresh * 2.0f);
         }
+        if (nextStep.x > bound.max.x || nextStep.x < bound.min.x)
+        {
+            if(type == Type.Sky)
+            {
+                objectCreator.DeleteParticularObject(this);
+            }
+            else
+            {
+                move.direction.x *= -1;
+                moveRefreshCooldown = Random.Range(moveRefresh, moveRefresh * 2.0f);
+            }
+        }
+
 
     }
 }

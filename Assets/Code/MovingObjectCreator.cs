@@ -4,15 +4,8 @@ using System.Collections.Generic;
 using System.Linq;
 
 public class MovingObjectCreator : MonoBehaviour {
-    public List<MovingObject> calmBeachPeople;
-    public List<MovingObject> mediumBeachPeople;
-    public List<MovingObject> strongBeachPeople;
-
-    public List<MovingObject> calmUnderSeaPeople;
-    public List<MovingObject> mediumUnderSeaPeople;
-    public List<MovingObject> strongUnderSeaPeople;
-
-
+    public List<MovingObject> beachPeople;
+    public List<MovingObject> underSeaPeople;
     public List<MovingObject> skyPeople;
     public List<MovingObject> intoSeaPeople;
 
@@ -86,40 +79,158 @@ public class MovingObjectCreator : MonoBehaviour {
     public void CreateObject(Type type, Schedule schedule)
     {
         Vector3 positionMin, positionMax, position;
-        GameObject newObject;
+        GameObject newObject = null;// = new GameObject();
+        
         switch (type)
         {
             case Type.CalmBeach:
             case Type.MediumBeach:
             case Type.StrongBeach:
-                positionMin = GameObject.Find("Beach").GetComponent<BoxCollider2D>().bounds.min;
-                positionMax = GameObject.Find("Beach").GetComponent<BoxCollider2D>().bounds.max;
-                position = new Vector3(Random.Range(positionMin.x, positionMax.y), Random.Range(positionMax.x, positionMax.y));
-                newObject = Instantiate(beachPrefab, position, Quaternion.identity) as GameObject;
-                newObject.GetComponent<SpriteRenderer>().sprite = GetSprite(type, schedule);
+                newObject = Instantiate(beachPrefab, Vector3.zero, Quaternion.identity) as GameObject;
                 break;
             case Type.CalmUnderSea:
             case Type.MediumUnderSea:
             case Type.StrongUnderSea:
-                positionMin = GameObject.Find("UnderSea").GetComponent<BoxCollider2D>().bounds.min;
-                positionMax = GameObject.Find("UnderSea").GetComponent<BoxCollider2D>().bounds.max;
-                position = new Vector3(Random.Range(positionMin.x, positionMax.y), Random.Range(positionMax.x, positionMax.y));
-                newObject = Instantiate(underSeaPrefab, position, Quaternion.identity) as GameObject;
-                newObject.GetComponent<SpriteRenderer>().sprite = GetSprite(type, schedule);
+                newObject = Instantiate(underSeaPrefab, Vector3.zero, Quaternion.identity) as GameObject;
                 break;
             case Type.IntoSea:
-                positionMin = GameObject.Find("IntoSea").GetComponent<BoxCollider2D>().bounds.min;
-                positionMax = GameObject.Find("IntoSea").GetComponent<BoxCollider2D>().bounds.max;
-                position = new Vector3(Random.Range(positionMin.x, positionMax.x), Random.Range(positionMax.y, positionMax.y));
-                newObject = Instantiate(intoSeaPrefab, position, Quaternion.identity) as GameObject;
-                newObject.GetComponent<SpriteRenderer>().sprite = GetSprite(type, schedule);
+                newObject = Instantiate(intoSeaPrefab, Vector3.zero, Quaternion.identity) as GameObject;
                 break;
             case Type.Sky:
-                positionMin = GameObject.Find("Sky").GetComponent<BoxCollider2D>().bounds.min;
-                positionMax = GameObject.Find("Sky").GetComponent<BoxCollider2D>().bounds.max;
-                position = new Vector3(Random.Range(positionMin.x, positionMax.x), Random.Range(positionMax.y, positionMax.y));
-                newObject = Instantiate(skyPrefab, position, Quaternion.identity) as GameObject;
-                newObject.GetComponent<SpriteRenderer>().sprite = GetSprite(type, schedule);
+                newObject = Instantiate(skyPrefab, Vector3.zero, Quaternion.identity) as GameObject;
+                break;
+        }
+
+        MovingObject newObjMove = newObject.GetComponent<MovingObject>();
+        Debug.Log(newObjMove);
+        positionMin = newObjMove.bound.min;
+        positionMax = newObjMove.bound.max;
+
+        position = new Vector3(Random.Range(positionMin.x, positionMax.x), Random.Range(positionMin.y, positionMax.y));
+        if(type == Type.Sky)
+        {
+            position.x = 9.5f;
+        }
+        newObject.transform.position = position;
+        newObjMove.type = type;
+        newObjMove.schedule = schedule;
+        newObject.GetComponent<SpriteRenderer>().sprite = GetSprite(type, schedule);
+
+        switch (type)
+        {
+            case Type.CalmBeach:
+            case Type.MediumBeach:
+            case Type.StrongBeach:
+                if(beachPeople.Count > maxPeople)
+                {
+                    Destroy(beachPeople[0].gameObject);
+                    beachPeople.RemoveAt(0);
+                }
+                beachPeople.Add(newObject.GetComponent<MovingObject>());
+                break;
+            case Type.CalmUnderSea:
+            case Type.MediumUnderSea:
+            case Type.StrongUnderSea:
+                if (underSeaPeople.Count > maxPeople)
+                {
+                    Destroy(underSeaPeople[0].gameObject);
+                    underSeaPeople.RemoveAt(0);
+                }
+                underSeaPeople.Add(newObject.GetComponent<MovingObject>());
+                break;
+            case Type.IntoSea:
+                if (intoSeaPeople.Count > maxPeople)
+                {
+                    Destroy(intoSeaPeople[0].gameObject);
+                    intoSeaPeople.RemoveAt(0);
+                }
+                intoSeaPeople.Add(newObject.GetComponent<MovingObject>());
+                break;
+            case Type.Sky:
+                if (skyPeople.Count > maxPeople)
+                {
+                    Destroy(skyPeople[0].gameObject);
+                    skyPeople.RemoveAt(0);
+                }
+                skyPeople.Add(newObject.GetComponent<MovingObject>());
+                break;
+        }
+    }
+
+    public void DeleteObject(Type type, Schedule schedule)
+    {
+        switch(type){
+            case Type.CalmBeach:
+            case Type.MediumBeach:
+            case Type.StrongBeach:
+                for(int i = 0; i < beachPeople.Count; ++i)
+                {
+                    if(beachPeople[i].type == type && beachPeople[i].schedule == schedule)
+                    {
+                        Destroy(beachPeople[i].gameObject);
+                        beachPeople.RemoveAt(0);
+                    }
+                }
+                break;
+            case Type.CalmUnderSea:
+            case Type.MediumUnderSea:
+            case Type.StrongUnderSea:
+                for (int i = 0; i < underSeaPeople.Count; ++i)
+                {
+                    if (underSeaPeople[i].type == type && underSeaPeople[i].schedule == schedule)
+                    {
+                        Destroy(underSeaPeople[i].gameObject);
+                        underSeaPeople.RemoveAt(0);
+                    }
+                }
+                break;
+            case Type.IntoSea:
+                for (int i = 0; i < intoSeaPeople.Count; ++i)
+                {
+                    if (intoSeaPeople[i].schedule == schedule)
+                    {
+                        Destroy(intoSeaPeople[i].gameObject);
+                        intoSeaPeople.RemoveAt(0);
+                    }
+                }
+                break;
+            case Type.Sky:
+                for (int i = 0; i < skyPeople.Count; ++i)
+                {
+                    if (skyPeople[i].schedule == schedule)
+                    {
+                        Destroy(skyPeople[i].gameObject);
+                        skyPeople.RemoveAt(0);
+                    }
+                }
+                break;
+        }
+    }
+
+   public void DeleteParticularObject(MovingObject objectToDestroy)
+    {
+        Debug.Log(objectToDestroy);
+        switch (objectToDestroy.type)
+        {
+            case Type.CalmBeach:
+            case Type.MediumBeach:
+            case Type.StrongBeach:
+                Destroy(beachPeople[beachPeople.IndexOf(objectToDestroy)].gameObject);
+                beachPeople.Remove(objectToDestroy);
+                break;
+            case Type.CalmUnderSea:
+            case Type.MediumUnderSea:
+            case Type.StrongUnderSea:
+                Destroy(underSeaPeople[underSeaPeople.IndexOf(objectToDestroy)].gameObject);
+                underSeaPeople.Remove(objectToDestroy);
+                break;
+            case Type.IntoSea:
+                Destroy(intoSeaPeople[intoSeaPeople.IndexOf(objectToDestroy)].gameObject);
+                intoSeaPeople.Remove(objectToDestroy);
+                break;
+            case Type.Sky:
+                Destroy(skyPeople[skyPeople.IndexOf(objectToDestroy)].gameObject);
+                skyPeople.Remove(objectToDestroy);
                 break;
         }
     }
@@ -132,28 +243,28 @@ public class MovingObjectCreator : MonoBehaviour {
             switch (type)
             {
                 case Type.CalmBeach:
-                    newSprite = dayCalmBeachSprites[Random.Range(0, dayCalmBeachSprites.Length)];
+                    newSprite = dayCalmBeachSprites[Random.Range(0, dayCalmBeachSprites.Length - 1)];
                 break;
                 case Type.MediumBeach:
-                    newSprite = dayMediumBeachSprites[Random.Range(0, dayMediumBeachSprites.Length)];
+                    newSprite = dayMediumBeachSprites[Random.Range(0, dayMediumBeachSprites.Length - 1)];
                     break;
                 case Type.StrongBeach:
-                    newSprite = dayStrongBeachSprites[Random.Range(0, dayStrongBeachSprites.Length)];
+                    newSprite = dayStrongBeachSprites[Random.Range(0, dayStrongBeachSprites.Length - 1)];
                     break;
                 case Type.CalmUnderSea:
-                    newSprite = dayCalmUnderSeaSprites[Random.Range(0, dayCalmUnderSeaSprites.Length)];
+                    newSprite = dayCalmUnderSeaSprites[Random.Range(0, dayCalmUnderSeaSprites.Length - 1)];
                     break;
                 case Type.MediumUnderSea:
-                    newSprite = dayMediumUnderSeaSprites[Random.Range(0, dayMediumUnderSeaSprites.Length)];
+                    newSprite = dayMediumUnderSeaSprites[Random.Range(0, dayMediumUnderSeaSprites.Length - 1)];
                     break;
                 case Type.StrongUnderSea:
-                    newSprite = dayStrongUnderSeaSprites[Random.Range(0, dayStrongUnderSeaSprites.Length)];
+                    newSprite = dayStrongUnderSeaSprites[Random.Range(0, dayStrongUnderSeaSprites.Length - 1)];
                     break;
                 case Type.IntoSea:
-                    newSprite = dayIntoSeaSprites[Random.Range(0, dayIntoSeaSprites.Length)];
+                    newSprite = dayIntoSeaSprites[Random.Range(0, dayIntoSeaSprites.Length - 1)];
                     break;
                 case Type.Sky:
-                    newSprite = daySkySprites[Random.Range(0, daySkySprites.Length)];
+                    newSprite = daySkySprites[Random.Range(0, daySkySprites.Length - 1)];
                     break;
             }
         }
@@ -162,28 +273,28 @@ public class MovingObjectCreator : MonoBehaviour {
             switch (type)
             {
                 case Type.CalmBeach:
-                    newSprite = nightCalmBeachSprites[Random.Range(0, nightCalmBeachSprites.Length)];
+                    newSprite = nightCalmBeachSprites[Random.Range(0, nightCalmBeachSprites.Length - 1)];
                     break;
                 case Type.MediumBeach:
-                    newSprite = nightMediumBeachSprites[Random.Range(0, nightMediumBeachSprites.Length)];
+                    newSprite = nightMediumBeachSprites[Random.Range(0, nightMediumBeachSprites.Length - 1)];
                     break;
                 case Type.StrongBeach:
-                    newSprite = nightStrongBeachSprites[Random.Range(0, nightStrongBeachSprites.Length)];
+                    newSprite = nightStrongBeachSprites[Random.Range(0, nightStrongBeachSprites.Length - 1)];
                     break;
                 case Type.CalmUnderSea:
-                    newSprite = nightCalmUnderSeaSprites[Random.Range(0, nightCalmUnderSeaSprites.Length)];
+                    newSprite = nightCalmUnderSeaSprites[Random.Range(0, nightCalmUnderSeaSprites.Length - 1)];
                     break;
                 case Type.MediumUnderSea:
-                    newSprite = nightMediumUnderSeaSprites[Random.Range(0, nightMediumUnderSeaSprites.Length)];
+                    newSprite = nightMediumUnderSeaSprites[Random.Range(0, nightMediumUnderSeaSprites.Length - 1)];
                     break;
                 case Type.StrongUnderSea:
-                    newSprite = nightStrongUnderSeaSprites[Random.Range(0, nightStrongUnderSeaSprites.Length)];
+                    newSprite = nightStrongUnderSeaSprites[Random.Range(0, nightStrongUnderSeaSprites.Length - 1)];
                     break;
                 case Type.IntoSea:
-                    newSprite = nightIntoSeaSprites[Random.Range(0, nightIntoSeaSprites.Length)];
+                    newSprite = nightIntoSeaSprites[Random.Range(0, nightIntoSeaSprites.Length - 1)];
                     break;
                 case Type.Sky:
-                    newSprite = nightSkySprites[Random.Range(0, nightSkySprites.Length)];
+                    newSprite = nightSkySprites[Random.Range(0, nightSkySprites.Length - 1)];
                     break;
             }
         }

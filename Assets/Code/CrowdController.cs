@@ -6,16 +6,14 @@ public class CrowdController : MonoBehaviour {
     public int[] jauges = new int[4]; //0 is calm, 1 is medium, 2 is big and 3 is DESTROY
     public MovingObjectCreator objectCreation;
 
-    public GameObject beachZone;
-    public GameObject UnderSeaZone;
-    public GameObject IntoSeaZone; 
-    public GameObject skyZone;
-
     public float jaugesDropRate;
     private float jaugesDropCooldown;
 
     private float intoSeaPopRate;
     private float intoSeaPopCooldown;
+
+    private float skyPopRate;
+    private float skyPopCooldown;
 
 
     private Text jauge0;
@@ -56,12 +54,25 @@ public class CrowdController : MonoBehaviour {
 
         if(intoSeaPopCooldown <= 0.0f)
         {
-            CreateIntoSea();
+            intoSeaPopCooldown = Random.Range(10.0f, 20.0f);
+            objectCreation.CreateObject(Type.IntoSea, Schedule.Day);
         }
         else
         {
             intoSeaPopCooldown -= Time.deltaTime;
         }
+
+        if(skyPopCooldown <= 0.0f)
+        {
+            skyPopCooldown = Random.Range(10.0f, 20.0f);
+            objectCreation.CreateObject(Type.Sky, Schedule.Day);
+        }
+        else
+        {
+            skyPopCooldown -= Time.deltaTime;
+        }
+
+
 	}
 
     public void UpdateJauges(float _wavePower)
@@ -90,6 +101,11 @@ public class CrowdController : MonoBehaviour {
         objectCreation.CreateObject(Type.IntoSea, Schedule.Day);
     }
 
+    public void CreateSky()
+    {
+        skyPopCooldown = Random.Range(10.0f, 20.0f);
+        objectCreation.CreateObject(Type.Sky, Schedule.Day);
+    }
 
     void Debug()
     {
