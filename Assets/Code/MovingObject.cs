@@ -57,7 +57,6 @@ public class MovingObject : MonoBehaviour {
             case Type.StrongBeach:
                 move.velocity = new Vector2(1.0f, 1.0f);
                 bound = GameObject.Find("Beach").GetComponent<BoxCollider2D>().bounds;
-                Debug.Log(bound.min);
                 break;
             case Type.CalmUnderSea:
             case Type.MediumUnderSea:
@@ -68,6 +67,8 @@ public class MovingObject : MonoBehaviour {
             case Type.Sky:
                 move.velocity = new Vector2(1.0f, 1.0f);
                 bound = GameObject.Find("Sky").GetComponent<BoxCollider2D>().bounds;
+                Debug.Log(bound.max);
+
                 break;
             case Type.IntoSea:
                 move.velocity = new Vector2(1.0f, 1.0f);
@@ -92,7 +93,7 @@ public class MovingObject : MonoBehaviour {
         {
             moveRefreshCooldown -= Time.deltaTime;
         }
-        if (type != Type.Sky && !getOut)
+        if (!getOut)
         {
             CheckBounds();
         }
@@ -111,21 +112,28 @@ public class MovingObject : MonoBehaviour {
     private void CheckBounds()
     {
         Vector2 nextStep = move.nextStep();
-        if (nextStep.y > bound.max.y || nextStep.y < bound.min.y)
+        if (transform.position.y > bound.max.y)
         {
-            move.direction.y *= -1;
-            moveRefreshCooldown = Random.Range(moveRefresh, moveRefresh * 2.0f);
+            move.direction.y += (bound.max.y - transform.position.y) * 0.1f;
         }
-        if (nextStep.x > bound.max.x || nextStep.x < bound.min.x)
+        if(transform.position.y < bound.min.y)
         {
-            if(type == Type.Sky)
+            move.direction.y -= (transform.position.y - bound.min.y) * 0.1f;
+        }
+
+        if (transform.position.x > bound.max.x)
+        {
+            move.direction.x += (bound.max.x - transform.position.x) * 0.1f;
+        }
+        if(transform.position.x < bound.min.x)
+        {
+            if (type == Type.Sky)
             {
                 objectCreator.DeleteParticularObject(this);
             }
             else
             {
-                move.direction.x *= -1;
-                moveRefreshCooldown = Random.Range(moveRefresh, moveRefresh * 2.0f);
+                move.direction.x -= (transform.position.x - bound.min.x) * 0.1f;
             }
         }
 
