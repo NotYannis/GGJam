@@ -44,11 +44,11 @@ public class TimeOfDay : MonoBehaviour {
         float time;
         if (t_timeOfDay > halfDay)
         {
-            time = Mathf.Lerp(1, 0, (t_timeOfDay - halfDay) / halfDay);
+            time = Mathf.Lerp(0, 1, (t_timeOfDay - halfDay) / halfDay);
         }
         else
         {
-            time = Mathf.Lerp(0, 1, (t_timeOfDay) / halfDay);
+            time = Mathf.Lerp(1, 0, (t_timeOfDay) / halfDay);
         }
 
 
