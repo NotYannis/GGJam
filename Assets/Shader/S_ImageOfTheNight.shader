@@ -55,7 +55,7 @@
 			{
 				// sample the texture
 				fixed4 texCol = tex2D(_MainTex, i.uv);
-				fixed4 skyTint = tex2D(_TimeOfDayLightColorRampTex, fixed2(_TimeOfDay,0.5f));
+				fixed4 skyTint = tex2D(_TimeOfDayLightColorRampTex, fixed2(_TimeOfDay, _TimeOfDay));
 
 				fixed4 col = texCol;
 				col.rgb *= skyTint.rgb;

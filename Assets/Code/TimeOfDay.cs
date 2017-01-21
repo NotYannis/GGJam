@@ -5,12 +5,18 @@ using System.Collections.Generic;
 public class TimeOfDay : MonoBehaviour {
     public float fullDayCycleDuration = 5.0f;
     public Texture TimeOfDayLightColorRamp;
+    public Vector2 skyGradientYHeights;
 
     float t_timeOfDay;
+    float halfDay;
     List<Material> materialsWithNightDayShader;
+    Transform skyGradient;
 
 	// Use this for initialization
 	void Start () {
+
+        skyGradient = transform.FindChild("SkyGradient");
+
         string shaderToLookFor = "Unlit/S_ImageOfTheNight";
         materialsWithNightDayShader = new List<Material>();
         Renderer[] allObjects = UnityEngine.Object.FindObjectsOfType<Renderer>();
@@ -22,6 +28,8 @@ public class TimeOfDay : MonoBehaviour {
                 r.material.SetTexture("_TimeOfDayLightColorRampTex", TimeOfDayLightColorRamp);
             }
         }
+
+        halfDay = fullDayCycleDuration / 2;
     }
 
     // Update is called once per frame
@@ -33,10 +41,26 @@ public class TimeOfDay : MonoBehaviour {
             t_timeOfDay -= fullDayCycleDuration;
         }
 
+
+        float time;
+        if (t_timeOfDay > halfDay)
+        {
+            time = Mathf.Lerp(1, 0, (t_timeOfDay - halfDay) / halfDay);
+        }
+        else
+        {
+            time = Mathf.Lerp(0, 1, (t_timeOfDay) / halfDay);
+        }
+
+
         foreach (Material mat in materialsWithNightDayShader)
         {
-            mat.SetFloat("_TimeOfDay", t_timeOfDay/fullDayCycleDuration);
+            mat.SetFloat("_TimeOfDay",time);
         }
+
+        Vector3 skyGradPos = skyGradient.position;
+        skyGradPos.y = Mathf.Lerp(skyGradientYHeights.x, skyGradientYHeights.y, time);
+        skyGradient.position = skyGradPos;
 
     }
 
