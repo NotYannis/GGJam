@@ -12,8 +12,8 @@ public class SC_ShareMaterial : MonoBehaviour {
     }
     void Start()
     {
-        ShareWith(r);
-        ShareWith(GameObject.Find("WavePlaneMesh").GetComponent<Renderer>());
+      //  ShareWith(r);
+       // ShareWith(GameObject.Find("WavePlaneMesh").GetComponent<Renderer>());
     }
 
     // Update is called once per frame

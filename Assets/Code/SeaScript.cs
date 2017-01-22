@@ -31,40 +31,40 @@ public class SeaScript : MonoBehaviour {
 	
 	// Update is called once per frame
 	void Update () {
-        for(int i = 0; i < waves.Count; ++i)
-        {
-            //If touch the beach, update jauges
-            if(waves[i].position.x < waveStopPosition)
-            {
-                crowd.UpdateJauges(waves[i].power);
-                waves.RemoveAt(i);
+        //for(int i = 0; i < waves.Count; ++i)
+        //{
+        //    //If touch the beach, update jauges
+        //    if(waves[i].position.x < waveStopPosition)
+        //    {
+        //        crowd.UpdateJauges(waves[i].power);
+        //        waves.RemoveAt(i);
 
-                wavesPH[i].transform.Find("Waveling").GetComponent<Waveling_Render>().Kill();
-                Destroy(wavesPH[i], 1f);
+        //        wavesPH[i].transform.Find("Waveling").GetComponent<Waveling_Render>().Kill();
+        //        Destroy(wavesPH[i], 1f);
                
-                wavesPH.RemoveAt(i);
-            }
-            else //Update wave position
-            {
-                wave w = waves[i];
-                w.position.x -= waveSpeed * Time.deltaTime;
-                waves[i] = w;
+        //        wavesPH.RemoveAt(i);
+        //    }
+        //    else //Update wave position
+        //    {
+        //        wave w = waves[i];
+        //        w.position.x -= waveSpeed * Time.deltaTime;
+        //        waves[i] = w;
 
-                wavesPH[i].transform.position = waves[i].position;
-            }
-        }
+        //        wavesPH[i].transform.position = waves[i].position;
+        //    }
+        //}
 	}
 
     public void CreateWave(float _wavePower)
     {
-        wave newWave = new wave();
-        newWave.power = _wavePower;
-        newWave.position = waveStartPosition;
-        waves.Add(newWave);
+       // wave newWave = new wave();
+       // newWave.power = _wavePower;
+       // newWave.position = waveStartPosition;
+       // waves.Add(newWave);
 
-        GameObject wavePH = Instantiate(wavePlaceHolder, waveStartPosition, Quaternion.identity) as GameObject;
-        wavePH.transform.Find("Waveling").GetComponent<Waveling_Render>().Init(_wavePower / 1.5f);
-        wavesPH.Add(wavePH);
+       // GameObject wavePH = Instantiate(wavePlaceHolder, waveStartPosition, Quaternion.identity) as GameObject;
+       //// wavePH.transform.Find("Waveling").GetComponent<Waveling_Render>().Init(_wavePower / 1.5f);
+       // wavesPH.Add(wavePH);
 
     }
 }

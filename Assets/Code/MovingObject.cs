@@ -98,8 +98,8 @@ public class MovingObject : MonoBehaviour {
     protected virtual void MakeSomeMovement()
     {
         move.direction = new Vector2(Random.Range(xLeftDir, xRightDir), Random.Range(yDownDir, yUpDir));
-        Debug.Log(gameObject.name);
-        Debug.Log(move.direction);
+        //Debug.Log(gameObject.name);
+        //Debug.Log(move.direction);
     }
 
     public void ChangeState(State _state)

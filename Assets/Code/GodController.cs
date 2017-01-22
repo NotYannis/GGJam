@@ -7,23 +7,35 @@ public class GodController : MonoBehaviour {
     private Text waveChargeDebug;
     private GameObject godArm;
     public SeaScript sea;
+    public float maxWavePower = 1.5f;
 
+    WavelingObject chargingWave;
+    GameObject chargingWaveObj;
+
+    GameObject wavePlaceHolder;
+    public Transform waveStartPosition;
+    public Transform waveEndPosition;
     private Vector3 godArmPosition;
-	// Use this for initialization
-	void Start () {
+    private CrowdController crowd;
+    // Use this for initialization
+    void Start () {
         waveChargeDebug = GameObject.Find("DEBUG/waveCharge").GetComponent<Text>();
         sea = GameObject.Find("Sea").GetComponent<SeaScript>();
         godArm = GameObject.Find("Arm");
 
         godArmPosition = godArm.transform.position;
+        wavePlaceHolder = Resources.Load("Prefabs/WavePH") as GameObject;
+        crowd = GameObject.Find("GameScripts").GetComponent<CrowdController>();
     }
 	
 	// Update is called once per frame
 	void Update () {
         bool waveCharging = Input.GetKey(KeyCode.Space);
 
-        if (waveCharging && wavePower < 1.5f)
+        if (waveCharging && wavePower < maxWavePower)
         {
+            if (chargingWave == null) { SpawnWave(); }
+
             gameObject.GetComponent<Animator>().SetBool("PrepareWave", true);
             wavePower += (Time.deltaTime/2);
             godArm.transform.position = new Vector3(godArm.transform.position.x, godArm.transform.position.y + wavePower / 100, godArm.transform.position.z);
@@ -34,13 +46,25 @@ public class GodController : MonoBehaviour {
             sea.CreateWave(wavePower);
             wavePower = 0;
             godArm.transform.position = godArmPosition;
+
+            chargingWave.Release();
+            chargingWave = null;
+            chargingWaveObj = null;
         }
 
-        Debug();
+        //Debug();
 	}
 
     void Debug()
     { 
         waveChargeDebug.text = ("Wave power = " + wavePower);
+    }
+
+
+    void SpawnWave()
+    {
+        chargingWaveObj = Instantiate(wavePlaceHolder, waveStartPosition.position, Quaternion.identity) as GameObject;
+        chargingWave = chargingWaveObj.GetComponent<WavelingObject>();
+        chargingWave.INIT(crowd, maxWavePower, waveEndPosition.position.x);
     }
 }
