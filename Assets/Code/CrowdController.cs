@@ -24,12 +24,17 @@ public class CrowdController : MonoBehaviour {
 
     // Use this for initialization
     void Awake () {
-        jauge0 = GameObject.Find("DEBUG/Jauge0").GetComponent<Text>();
-        jauge1 = GameObject.Find("DEBUG/Jauge1").GetComponent<Text>();
-        jauge2 = GameObject.Find("DEBUG/Jauge2").GetComponent<Text>();
-        jauge3 = GameObject.Find("DEBUG/Jauge3").GetComponent<Text>();
+        //jauge0 = GameObject.Find("DEBUG/Jauge0").GetComponent<Text>();
+        //jauge1 = GameObject.Find("DEBUG/Jauge1").GetComponent<Text>();
+        //jauge2 = GameObject.Find("DEBUG/Jauge2").GetComponent<Text>();
+        //jauge3 = GameObject.Find("DEBUG/Jauge3").GetComponent<Text>();
 
         globalTime = GameObject.Find("GameScripts").GetComponent<TimeOfDay>();
+        if (globalTime == null)
+        {
+            globalTime=  GameObject.Find("GAME").GetComponent<TimeOfDay>();
+        }
+        if (globalTime == null) { Debug.Log("Missing TimeOfDay"); Application.Quit(); }
         objectCreation = GameObject.Find("GameScripts").GetComponent<MovingObjectCreator>();
     }
 

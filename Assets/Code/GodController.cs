@@ -24,7 +24,7 @@ public class GodController : MonoBehaviour {
         godArm = GameObject.Find("Arm");
     }
     void Start () {
-        waveChargeDebug = GameObject.Find("DEBUG/waveCharge").GetComponent<Text>();
+        //waveChargeDebug = GameObject.Find("DEBUG/waveCharge").GetComponent<Text>();
         //sea = GameObject.Find("Sea").GetComponent<SeaScript>();
 
 
