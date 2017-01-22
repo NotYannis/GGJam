@@ -39,7 +39,9 @@ public class SeaScript : MonoBehaviour {
                 crowd.UpdateJauges(waves[i].power);
                 waves.RemoveAt(i);
 
-                Destroy(wavesPH[i]);
+                wavesPH[i].transform.Find("Waveling").GetComponent<Waveling_Render>().Kill();
+                Destroy(wavesPH[i], 1f);
+               
                 wavesPH.RemoveAt(i);
             }
             else //Update wave position
@@ -61,6 +63,7 @@ public class SeaScript : MonoBehaviour {
         waves.Add(newWave);
 
         GameObject wavePH = Instantiate(wavePlaceHolder, waveStartPosition, Quaternion.identity) as GameObject;
+        wavePH.transform.Find("Waveling").GetComponent<Waveling_Render>().Init(_wavePower / 1.5f);
         wavesPH.Add(wavePH);
 
     }
