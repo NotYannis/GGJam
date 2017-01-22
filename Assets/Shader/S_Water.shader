@@ -3,6 +3,9 @@
 	Properties
 	{
 		_Color ("Color", Color) = (1,1,1,1)
+		_TimeOfDayLightColorRampTex("TimeOfDayLightColorRamp", 2D) = "white"{}
+	_TimeOfDay("Night Transition", Range(0,1)) = 0.0
+		_LightIntake("LightIntake", Range(0,1)) = 0.0
 
 		_NormalTex1("NormalMap1", 2D) = "bump" {}
 		_NormalTex2("NormalMap2", 2D) = "bump" {}
@@ -39,7 +42,10 @@
 			
 
 
-			fixed4 _Color;
+		fixed4 _Color;
+		sampler2D _TimeOfDayLightColorRampTex;
+		uniform fixed _TimeOfDay;
+		uniform fixed _LightIntake;
 
 		uniform sampler2D _NormalTex1;
 		uniform sampler2D _NormalTex2;
@@ -120,8 +126,9 @@
 				ReflrColor = refr;
 			}
 
-
-				fixed4 col = lerp(ReflrColor, _Color, _RefrOnecent);
+			fixed4 skyTint = tex2D(_TimeOfDayLightColorRampTex, fixed2(_TimeOfDay, _TimeOfDay));
+			fixed4 col = lerp(ReflrColor, _Color, _RefrOnecent);
+			col*= lerp(fixed4(1,1,1,1), skyTint, _LightIntake);
 				//col.rgb = unpackedNormal;// normalTexAll; // tex2D(_NormalTex1, (i.worldPos.xy * _WaveScaleMult * _NormalTex1_ST.xy));
 				return col;
 			}
