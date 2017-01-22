@@ -52,13 +52,7 @@ public class GodController : MonoBehaviour {
             chargingWaveObj = null;
         }
 
-        //Debug();
 	}
-
-    void Debug()
-    { 
-        waveChargeDebug.text = ("Wave power = " + wavePower);
-    }
 
 
     void SpawnWave()

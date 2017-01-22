@@ -44,10 +44,12 @@ public class MovingObjectCreator : MonoBehaviour {
 
     // Use this for initialization
     void Awake () {
+        dayBeachSprites = Resources.LoadAll("Sprites/Day/Beach/Plate", typeof(RuntimeAnimatorController)).Cast<RuntimeAnimatorController>().ToArray();
         dayCalmBeachSprites = Resources.LoadAll("Sprites/Day/Beach/Calm", typeof(RuntimeAnimatorController)).Cast<RuntimeAnimatorController>().ToArray();
         dayMediumBeachSprites = Resources.LoadAll("Sprites/Day/Beach/Medium", typeof(RuntimeAnimatorController)).Cast<RuntimeAnimatorController>().ToArray();
         dayStrongBeachSprites = Resources.LoadAll("Sprites/Day/Beach/Strong", typeof(RuntimeAnimatorController)).Cast<RuntimeAnimatorController>().ToArray();
 
+        nightBeachSprites = Resources.LoadAll("Sprites/Day/Beach/Plate", typeof(RuntimeAnimatorController)).Cast<RuntimeAnimatorController>().ToArray();
         nightCalmBeachSprites = Resources.LoadAll("Sprites/Night/Beach/Calm", typeof(RuntimeAnimatorController)).Cast<RuntimeAnimatorController>().ToArray();
         nightMediumBeachSprites = Resources.LoadAll("Sprites/Night/Beach/Medium", typeof(RuntimeAnimatorController)).Cast<RuntimeAnimatorController>().ToArray();
         nightStrongBeachSprites = Resources.LoadAll("Sprites/Night/Beach/Strong", typeof(RuntimeAnimatorController)).Cast<RuntimeAnimatorController>().ToArray();
@@ -86,11 +88,13 @@ public class MovingObjectCreator : MonoBehaviour {
         
         switch(type)
         {
+            case Type.PlateBeach:
             case Type.CalmBeach:
             case Type.MediumBeach:
             case Type.StrongBeach:
                 newObject = Instantiate(beachPrefab, Vector3.zero, Quaternion.identity) as GameObject;
                 break;
+            case Type.PlateUnderSea:
             case Type.CalmUnderSea:
             case Type.MediumUnderSea:
             case Type.StrongUnderSea:
@@ -118,9 +122,10 @@ public class MovingObjectCreator : MonoBehaviour {
         newObjMove.type = type;
         newObjMove.schedule = schedule;
         newObject.GetComponent<Animator>().runtimeAnimatorController = GetAnimator(type, schedule);
-
+        
         switch (type)
         {
+            case Type.PlateBeach:
             case Type.CalmBeach:
             case Type.MediumBeach:
             case Type.StrongBeach:
@@ -131,6 +136,7 @@ public class MovingObjectCreator : MonoBehaviour {
                 }
                 beachPeople.Add(newObject.GetComponent<MovingObject>());
                 break;
+            case Type.PlateUnderSea:
             case Type.CalmUnderSea:
             case Type.MediumUnderSea:
             case Type.StrongUnderSea:
@@ -163,6 +169,7 @@ public class MovingObjectCreator : MonoBehaviour {
     public void DeleteObject(Type type, Schedule schedule)
     {
         switch(type){
+            case Type.PlateBeach:
             case Type.CalmBeach:
             case Type.MediumBeach:
             case Type.StrongBeach:
@@ -176,6 +183,7 @@ public class MovingObjectCreator : MonoBehaviour {
                     }
                 }
                 break;
+            case Type.PlateUnderSea:
             case Type.CalmUnderSea:
             case Type.MediumUnderSea:
             case Type.StrongUnderSea:
@@ -218,12 +226,14 @@ public class MovingObjectCreator : MonoBehaviour {
     {
         switch (objectToDestroy.type)
         {
+            case Type.PlateBeach:
             case Type.CalmBeach:
             case Type.MediumBeach:
             case Type.StrongBeach:
                 Destroy(beachPeople[beachPeople.IndexOf(objectToDestroy)].gameObject);
                 beachPeople.Remove(objectToDestroy);
                 break;
+            case Type.PlateUnderSea:
             case Type.CalmUnderSea:
             case Type.MediumUnderSea:
             case Type.StrongUnderSea:
@@ -248,15 +258,21 @@ public class MovingObjectCreator : MonoBehaviour {
         {
             switch (type)
             {
+                case Type.PlateBeach:
+                    newSprite = dayBeachSprites[Random.Range(0, dayBeachSprites.Length)];
+                    break;
                 case Type.CalmBeach:
                     newSprite = dayCalmBeachSprites[Random.Range(0, dayCalmBeachSprites.Length)];
                 break;
                 case Type.MediumBeach:
                     newSprite = dayMediumBeachSprites[Random.Range(0, dayMediumBeachSprites.Length )];
                     break;
-                //case Type.StrongBeach:
-                  //  newSprite = dayStrongBeachSprites[Random.Range(0, dayStrongBeachSprites.Length )];
-                   // break;
+                case Type.StrongBeach:
+                    newSprite = dayStrongBeachSprites[Random.Range(0, dayStrongBeachSprites.Length )];
+                    break;
+                case Type.PlateUnderSea:
+                    newSprite = dayUnderSeaSprites[Random.Range(0, dayUnderSeaSprites.Length)];
+                    break;
                 case Type.CalmUnderSea:
                     newSprite = dayCalmUnderSeaSprites[Random.Range(0, dayCalmUnderSeaSprites.Length )];
                     break;
@@ -278,6 +294,9 @@ public class MovingObjectCreator : MonoBehaviour {
         {
             switch (type)
             {
+                case Type.PlateBeach:
+                    newSprite = nightBeachSprites[Random.Range(0, nightBeachSprites.Length)];
+                    break;
                 case Type.CalmBeach:
                     newSprite = nightCalmBeachSprites[Random.Range(0, nightCalmBeachSprites.Length )];
                     break;
@@ -286,6 +305,9 @@ public class MovingObjectCreator : MonoBehaviour {
                     break;
                 case Type.StrongBeach:
                     newSprite = nightStrongBeachSprites[Random.Range(0, nightStrongBeachSprites.Length )];
+                    break;
+                case Type.PlateUnderSea:
+                    newSprite = nightUnderSeaSprites[Random.Range(0, nightUnderSeaSprites.Length)];
                     break;
                 case Type.CalmUnderSea:
                     newSprite = nightCalmUnderSeaSprites[Random.Range(0, nightCalmUnderSeaSprites.Length )];

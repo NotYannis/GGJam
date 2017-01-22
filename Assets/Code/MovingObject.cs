@@ -2,9 +2,11 @@
 using System.Collections;
 
 public enum Type{
+    PlateBeach,
     CalmBeach,
     MediumBeach,
     StrongBeach,
+    PlateUnderSea,
     CalmUnderSea,
     MediumUnderSea,
     StrongUnderSea,
@@ -52,12 +54,14 @@ public class MovingObject : MonoBehaviour {
 
         switch (type)
         {
+            case Type.PlateBeach:
             case Type.CalmBeach:
             case Type.MediumBeach:
             case Type.StrongBeach:
                 move.velocity = new Vector2(1.0f, 1.0f);
                 bound = GameObject.Find("Beach").GetComponent<BoxCollider2D>().bounds;
                 break;
+            case Type.PlateUnderSea:
             case Type.CalmUnderSea:
             case Type.MediumUnderSea:
             case Type.StrongUnderSea:
@@ -83,7 +87,7 @@ public class MovingObject : MonoBehaviour {
 	
 	// Update is called once per frame
 	void Update () {
-        if(moveRefreshCooldown <= 0.0f)
+        if (moveRefreshCooldown <= 0.0f)
         {
             MakeSomeMovement();
             moveRefreshCooldown = Random.Range(moveRefresh, moveRefresh * 2.0f);
@@ -98,8 +102,6 @@ public class MovingObject : MonoBehaviour {
     protected virtual void MakeSomeMovement()
     {
         move.direction = new Vector2(Random.Range(xLeftDir, xRightDir), Random.Range(yDownDir, yUpDir));
-        //Debug.Log(gameObject.name);
-        //Debug.Log(move.direction);
     }
 
     public void ChangeState(State _state)
