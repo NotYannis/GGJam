@@ -5,6 +5,7 @@ using System.Collections;
 public class CrowdController : MonoBehaviour {
     public int[] jauges = new int[4]; //0 is calm, 1 is medium, 2 is big and 3 is DESTROY
     public MovingObjectCreator objectCreation;
+    public TimeOfDay globalTime;
 
     public float jaugesDropRate;
     private float jaugesDropCooldown;
@@ -21,15 +22,14 @@ public class CrowdController : MonoBehaviour {
     private Text jauge2;
     private Text jauge3;
 
-
     // Use this for initialization
-    void Start () {
+    void Awake () {
         jauge0 = GameObject.Find("DEBUG/Jauge0").GetComponent<Text>();
         jauge1 = GameObject.Find("DEBUG/Jauge1").GetComponent<Text>();
         jauge2 = GameObject.Find("DEBUG/Jauge2").GetComponent<Text>();
         jauge3 = GameObject.Find("DEBUG/Jauge3").GetComponent<Text>();
 
-
+        globalTime = GameObject.Find("GameScripts").GetComponent<TimeOfDay>();
         objectCreation = GameObject.Find("GameScripts").GetComponent<MovingObjectCreator>();
     }
 
@@ -79,32 +79,52 @@ public class CrowdController : MonoBehaviour {
     {
         if(_wavePower < 0.5f)
         {
-            if(jauges[0] < 10) jauges[0]++;
+            if (jauges[0] < 10)
+            {
+                jauges[0]++;
+                objectCreation.CreateObject(Type.CalmBeach, globalTime.GetSchedule());
+                objectCreation.CreateObject(Type.CalmUnderSea, globalTime.GetSchedule());
+            }
         }
         else if(_wavePower < 1.0f)
         {
-            if (jauges[1] < 10) jauges[1]++;
+            if (jauges[1] < 10)
+            {
+                jauges[1]++;
+                objectCreation.CreateObject(Type.MediumBeach, globalTime.GetSchedule());
+                objectCreation.CreateObject(Type.MediumUnderSea, globalTime.GetSchedule());
+            }
         }
         else if(_wavePower < 1.5f)
         {
-            if (jauges[2] < 10) jauges[2]++;
+            if (jauges[2] < 10)
+            {
+                jauges[2]++;
+                objectCreation.CreateObject(Type.StrongBeach, globalTime.GetSchedule());
+                objectCreation.CreateObject(Type.StrongUnderSea, globalTime.GetSchedule());
+            }
         }
         else
         {
-            if (jauges[3] < 10) jauges[3]++;
+            if (jauges[3] < 10)
+            {
+                jauges[3]++;
+                objectCreation.CreateObject(Type.StrongBeach, globalTime.GetSchedule());
+                objectCreation.CreateObject(Type.StrongUnderSea, globalTime.GetSchedule());
+            }
         }
     }
 
     public void CreateIntoSea()
     {
         intoSeaPopCooldown = Random.Range(10.0f, 20.0f);
-        objectCreation.CreateObject(Type.IntoSea, Schedule.Day);
+        objectCreation.CreateObject(Type.IntoSea, globalTime.GetSchedule());
     }
 
     public void CreateSky()
     {
         skyPopCooldown = Random.Range(10.0f, 20.0f);
-        objectCreation.CreateObject(Type.Sky, Schedule.Day);
+        objectCreation.CreateObject(Type.Sky, globalTime.GetSchedule());
     }
 
     void Debug()

@@ -18,20 +18,25 @@ public class MovingObjectCreator : MonoBehaviour {
     public Sprite[] dayMediumBeachSprites;
     public Sprite[] dayStrongBeachSprites;
     public Sprite[] dayBeachSprites;
+
     public Sprite[] nightCalmBeachSprites;
     public Sprite[] nightMediumBeachSprites;
     public Sprite[] nightStrongBeachSprites;
     public Sprite[] nightBeachSprites;
+
     public Sprite[] dayUnderSeaSprites;
     public Sprite[] dayCalmUnderSeaSprites;
     public Sprite[] dayMediumUnderSeaSprites;
     public Sprite[] dayStrongUnderSeaSprites;
+
     public Sprite[] nightUnderSeaSprites;
     public Sprite[] nightCalmUnderSeaSprites;
     public Sprite[] nightMediumUnderSeaSprites;
     public Sprite[] nightStrongUnderSeaSprites;
+
     public Sprite[] dayIntoSeaSprites;
     public Sprite[] nightIntoSeaSprites;
+
     public Sprite[] daySkySprites;
     public Sprite[] nightSkySprites;
 
@@ -81,7 +86,7 @@ public class MovingObjectCreator : MonoBehaviour {
         Vector3 positionMin, positionMax, position;
         GameObject newObject = null;
         
-        switch (type)
+        switch(type)
         {
             case Type.CalmBeach:
             case Type.MediumBeach:
@@ -169,6 +174,7 @@ public class MovingObjectCreator : MonoBehaviour {
                     {
                         Destroy(beachPeople[i].gameObject);
                         beachPeople.RemoveAt(0);
+                        return;
                     }
                 }
                 break;
@@ -181,6 +187,7 @@ public class MovingObjectCreator : MonoBehaviour {
                     {
                         Destroy(underSeaPeople[i].gameObject);
                         underSeaPeople.RemoveAt(0);
+                        return;
                     }
                 }
                 break;
@@ -191,6 +198,7 @@ public class MovingObjectCreator : MonoBehaviour {
                     {
                         Destroy(intoSeaPeople[i].gameObject);
                         intoSeaPeople.RemoveAt(0);
+                        return;
                     }
                 }
                 break;
@@ -201,6 +209,7 @@ public class MovingObjectCreator : MonoBehaviour {
                     {
                         Destroy(skyPeople[i].gameObject);
                         skyPeople.RemoveAt(0);
+                        return;
                     }
                 }
                 break;

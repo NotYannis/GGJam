@@ -76,8 +76,24 @@ public class TimeOfDay : MonoBehaviour {
     {
         return t_timeOfDay / fullDayCycleDuration;
     }
+
     public float GetHour()
     {
         return 24.0f * (GetTimeOfDay());
+    }
+
+    public Schedule GetSchedule()
+    {
+        Schedule schedule;
+        if(GetHour() > NightfallHour && GetHour() < Dayrise)
+        {
+            schedule = Schedule.Night;
+        }
+        else
+        {
+            schedule = Schedule.Day;
+        }
+
+        return schedule;
     }
 }

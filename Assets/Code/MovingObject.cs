@@ -67,8 +67,6 @@ public class MovingObject : MonoBehaviour {
             case Type.Sky:
                 move.velocity = new Vector2(1.0f, 1.0f);
                 bound = GameObject.Find("Sky").GetComponent<BoxCollider2D>().bounds;
-                Debug.Log(bound.max);
-
                 break;
             case Type.IntoSea:
                 move.velocity = new Vector2(1.0f, 1.0f);
@@ -111,7 +109,6 @@ public class MovingObject : MonoBehaviour {
 
     private void CheckBounds()
     {
-        Vector2 nextStep = move.nextStep();
         if (transform.position.y > bound.max.y)
         {
             move.direction.y += (bound.max.y - transform.position.y) * 0.1f;
