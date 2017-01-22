@@ -251,28 +251,28 @@ public class MovingObjectCreator : MonoBehaviour {
             switch (type)
             {
                 case Type.CalmBeach:
-                    newSprite = dayCalmBeachSprites[Random.Range(0, dayCalmBeachSprites.Length - 1)];
+                    newSprite = dayCalmBeachSprites[Random.Range(0, dayCalmBeachSprites.Length)];
                 break;
                 case Type.MediumBeach:
-                    newSprite = dayMediumBeachSprites[Random.Range(0, dayMediumBeachSprites.Length - 1)];
+                    newSprite = dayMediumBeachSprites[Random.Range(0, dayMediumBeachSprites.Length )];
                     break;
                 //case Type.StrongBeach:
-                  //  newSprite = dayStrongBeachSprites[Random.Range(0, dayStrongBeachSprites.Length - 1)];
+                  //  newSprite = dayStrongBeachSprites[Random.Range(0, dayStrongBeachSprites.Length )];
                    // break;
                 case Type.CalmUnderSea:
-                    newSprite = dayCalmUnderSeaSprites[Random.Range(0, dayCalmUnderSeaSprites.Length - 1)];
+                    newSprite = dayCalmUnderSeaSprites[Random.Range(0, dayCalmUnderSeaSprites.Length )];
                     break;
                 case Type.MediumUnderSea:
-                    newSprite = dayMediumUnderSeaSprites[Random.Range(0, dayMediumUnderSeaSprites.Length - 1)];
+                    newSprite = dayMediumUnderSeaSprites[Random.Range(0, dayMediumUnderSeaSprites.Length )];
                     break;
                 case Type.StrongUnderSea:
-                    newSprite = dayStrongUnderSeaSprites[Random.Range(0, dayStrongUnderSeaSprites.Length - 1)];
+                    newSprite = dayStrongUnderSeaSprites[Random.Range(0, dayStrongUnderSeaSprites.Length )];
                     break;
                 case Type.IntoSea:
-                    newSprite = dayIntoSeaSprites[Random.Range(0, dayIntoSeaSprites.Length - 1)];
+                    newSprite = dayIntoSeaSprites[Random.Range(0, dayIntoSeaSprites.Length )];
                     break;
                 case Type.Sky:
-                    newSprite = daySkySprites[Random.Range(0, daySkySprites.Length - 1)];
+                    newSprite = daySkySprites[Random.Range(0, daySkySprites.Length )];
                     break;
             }
         }
@@ -281,28 +281,28 @@ public class MovingObjectCreator : MonoBehaviour {
             switch (type)
             {
                 case Type.CalmBeach:
-                    newSprite = nightCalmBeachSprites[Random.Range(0, nightCalmBeachSprites.Length - 1)];
+                    newSprite = nightCalmBeachSprites[Random.Range(0, nightCalmBeachSprites.Length )];
                     break;
                 case Type.MediumBeach:
-                    newSprite = nightMediumBeachSprites[Random.Range(0, nightMediumBeachSprites.Length - 1)];
+                    newSprite = nightMediumBeachSprites[Random.Range(0, nightMediumBeachSprites.Length )];
                     break;
                 case Type.StrongBeach:
-                    newSprite = nightStrongBeachSprites[Random.Range(0, nightStrongBeachSprites.Length - 1)];
+                    newSprite = nightStrongBeachSprites[Random.Range(0, nightStrongBeachSprites.Length )];
                     break;
                 case Type.CalmUnderSea:
-                    newSprite = nightCalmUnderSeaSprites[Random.Range(0, nightCalmUnderSeaSprites.Length - 1)];
+                    newSprite = nightCalmUnderSeaSprites[Random.Range(0, nightCalmUnderSeaSprites.Length )];
                     break;
                 case Type.MediumUnderSea:
-                    newSprite = nightMediumUnderSeaSprites[Random.Range(0, nightMediumUnderSeaSprites.Length - 1)];
+                    newSprite = nightMediumUnderSeaSprites[Random.Range(0, nightMediumUnderSeaSprites.Length )];
                     break;
                 case Type.StrongUnderSea:
-                    newSprite = nightStrongUnderSeaSprites[Random.Range(0, nightStrongUnderSeaSprites.Length - 1)];
+                    newSprite = nightStrongUnderSeaSprites[Random.Range(0, nightStrongUnderSeaSprites.Length )];
                     break;
                 case Type.IntoSea:
-                    newSprite = nightIntoSeaSprites[Random.Range(0, nightIntoSeaSprites.Length - 1)];
+                    newSprite = nightIntoSeaSprites[Random.Range(0, nightIntoSeaSprites.Length )];
                     break;
                 case Type.Sky:
-                    newSprite = nightSkySprites[Random.Range(0, nightSkySprites.Length - 1)];
+                    newSprite = nightSkySprites[Random.Range(0, nightSkySprites.Length )];
                     break;
             }
         }

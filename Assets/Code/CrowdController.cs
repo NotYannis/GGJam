@@ -35,7 +35,7 @@ public class CrowdController : MonoBehaviour {
 
     // Update is called once per frame
     void Update () {
-	    if(jaugesDropCooldown <= 0.0f)
+        if (jaugesDropCooldown <= 0.0f)
         {
             jaugesDropCooldown = jaugesDropRate;
             for (int i = 0; i < 4; ++i)
@@ -45,12 +45,12 @@ public class CrowdController : MonoBehaviour {
                     --jauges[i];
                 }
             }
+
         }
         else
         {
             jaugesDropCooldown -= Time.deltaTime;
         }
-        Debug();
 
         if(intoSeaPopCooldown <= 0.0f)
         {
@@ -77,13 +77,25 @@ public class CrowdController : MonoBehaviour {
 
     public void UpdateJauges(float _wavePower)
     {
-        if(_wavePower < 0.5f)
+        int rand = (int)Random.value;
+
+        if (_wavePower < 0.5f)
         {
             if (jauges[0] < 10)
             {
                 jauges[0]++;
                 objectCreation.CreateObject(Type.CalmBeach, globalTime.GetSchedule());
                 objectCreation.CreateObject(Type.CalmUnderSea, globalTime.GetSchedule());
+                if(rand == 0)
+                {
+                    objectCreation.DeleteObject(Type.MediumBeach, globalTime.GetSchedule());
+                    objectCreation.DeleteObject(Type.MediumUnderSea, globalTime.GetSchedule());
+                }
+                if (rand == 1)
+                {
+                    objectCreation.DeleteObject(Type.StrongBeach, globalTime.GetSchedule());
+                    objectCreation.DeleteObject(Type.StrongUnderSea, globalTime.GetSchedule());
+                }
             }
         }
         else if(_wavePower < 1.0f)
@@ -93,6 +105,16 @@ public class CrowdController : MonoBehaviour {
                 jauges[1]++;
                 objectCreation.CreateObject(Type.MediumBeach, globalTime.GetSchedule());
                 objectCreation.CreateObject(Type.MediumUnderSea, globalTime.GetSchedule());
+                if (rand == 0)
+                {
+                    objectCreation.DeleteObject(Type.CalmBeach, globalTime.GetSchedule());
+                    objectCreation.DeleteObject(Type.CalmUnderSea, globalTime.GetSchedule());
+                }
+                if (rand == 1)
+                {
+                    objectCreation.DeleteObject(Type.StrongBeach, globalTime.GetSchedule());
+                    objectCreation.DeleteObject(Type.StrongUnderSea, globalTime.GetSchedule());
+                }
             }
         }
         else if(_wavePower < 1.5f)
@@ -102,6 +124,16 @@ public class CrowdController : MonoBehaviour {
                 jauges[2]++;
                 objectCreation.CreateObject(Type.StrongBeach, globalTime.GetSchedule());
                 objectCreation.CreateObject(Type.StrongUnderSea, globalTime.GetSchedule());
+                if (rand == 0)
+                {
+                    objectCreation.DeleteObject(Type.MediumBeach, globalTime.GetSchedule());
+                    objectCreation.DeleteObject(Type.MediumUnderSea, globalTime.GetSchedule());
+                }
+                if (rand == 1)
+                {
+                    objectCreation.DeleteObject(Type.CalmBeach, globalTime.GetSchedule());
+                    objectCreation.DeleteObject(Type.CalmUnderSea, globalTime.GetSchedule());
+                }
             }
         }
         else
@@ -109,8 +141,12 @@ public class CrowdController : MonoBehaviour {
             if (jauges[3] < 10)
             {
                 jauges[3]++;
-                objectCreation.CreateObject(Type.StrongBeach, globalTime.GetSchedule());
-                objectCreation.CreateObject(Type.StrongUnderSea, globalTime.GetSchedule());
+                objectCreation.DeleteObject(Type.CalmBeach, globalTime.GetSchedule());
+                objectCreation.DeleteObject(Type.CalmUnderSea, globalTime.GetSchedule());
+                objectCreation.DeleteObject(Type.MediumBeach, globalTime.GetSchedule());
+                objectCreation.DeleteObject(Type.MediumUnderSea, globalTime.GetSchedule());
+                objectCreation.DeleteObject(Type.StrongBeach, globalTime.GetSchedule());
+                objectCreation.DeleteObject(Type.StrongUnderSea, globalTime.GetSchedule());
             }
         }
     }
@@ -125,13 +161,5 @@ public class CrowdController : MonoBehaviour {
     {
         skyPopCooldown = Random.Range(10.0f, 20.0f);
         objectCreation.CreateObject(Type.Sky, globalTime.GetSchedule());
-    }
-
-    void Debug()
-    {
-        jauge0.text = ("Jauge 0 : " + jauges[0]);
-        jauge1.text = ("Jauge 1 : " + jauges[1]);
-        jauge2.text = ("Jauge 2 : " + jauges[2]);
-        jauge3.text = ("Jauge 3 : " + jauges[3]);
     }
 }

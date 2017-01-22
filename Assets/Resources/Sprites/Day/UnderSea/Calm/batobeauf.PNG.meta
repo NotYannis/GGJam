@@ -1,6 +1,6 @@
 fileFormatVersion: 2
-guid: 9901fa31c519e1f449b472e706780015
-timeCreated: 1485059963
+guid: 9cfb258160486df408c0a1915331c8f6
+timeCreated: 1485077682
 licenseType: Free
 TextureImporter:
   fileIDToRecycleName:
@@ -80,8 +80,8 @@ TextureImporter:
       rect:
         serializedVersion: 2
         x: 0
-        y: 574
-        width: 201
+        y: 410
+        width: 220
         height: 82
       alignment: 0
       pivot: {x: 0, y: 0}
@@ -92,9 +92,9 @@ TextureImporter:
       name: batobeauf_1
       rect:
         serializedVersion: 2
-        x: 201
-        y: 574
-        width: 201
+        x: 220
+        y: 410
+        width: 220
         height: 82
       alignment: 0
       pivot: {x: 0, y: 0}
@@ -105,9 +105,9 @@ TextureImporter:
       name: batobeauf_2
       rect:
         serializedVersion: 2
-        x: 402
-        y: 574
-        width: 201
+        x: 440
+        y: 410
+        width: 220
         height: 82
       alignment: 0
       pivot: {x: 0, y: 0}
@@ -118,9 +118,9 @@ TextureImporter:
       name: batobeauf_3
       rect:
         serializedVersion: 2
-        x: 0
-        y: 492
-        width: 201
+        x: 660
+        y: 410
+        width: 220
         height: 82
       alignment: 0
       pivot: {x: 0, y: 0}
@@ -131,9 +131,9 @@ TextureImporter:
       name: batobeauf_4
       rect:
         serializedVersion: 2
-        x: 201
-        y: 492
-        width: 201
+        x: 0
+        y: 328
+        width: 220
         height: 82
       alignment: 0
       pivot: {x: 0, y: 0}
@@ -144,9 +144,9 @@ TextureImporter:
       name: batobeauf_5
       rect:
         serializedVersion: 2
-        x: 402
-        y: 492
-        width: 201
+        x: 220
+        y: 328
+        width: 220
         height: 82
       alignment: 0
       pivot: {x: 0, y: 0}
@@ -157,9 +157,9 @@ TextureImporter:
       name: batobeauf_6
       rect:
         serializedVersion: 2
-        x: 0
-        y: 410
-        width: 201
+        x: 440
+        y: 328
+        width: 220
         height: 82
       alignment: 0
       pivot: {x: 0, y: 0}
@@ -170,9 +170,9 @@ TextureImporter:
       name: batobeauf_7
       rect:
         serializedVersion: 2
-        x: 201
-        y: 410
-        width: 201
+        x: 660
+        y: 328
+        width: 220
         height: 82
       alignment: 0
       pivot: {x: 0, y: 0}
@@ -183,9 +183,9 @@ TextureImporter:
       name: batobeauf_8
       rect:
         serializedVersion: 2
-        x: 402
-        y: 410
-        width: 201
+        x: 0
+        y: 246
+        width: 220
         height: 82
       alignment: 0
       pivot: {x: 0, y: 0}
@@ -196,9 +196,9 @@ TextureImporter:
       name: batobeauf_9
       rect:
         serializedVersion: 2
-        x: 0
-        y: 328
-        width: 201
+        x: 220
+        y: 246
+        width: 220
         height: 82
       alignment: 0
       pivot: {x: 0, y: 0}
@@ -209,9 +209,9 @@ TextureImporter:
       name: batobeauf_10
       rect:
         serializedVersion: 2
-        x: 201
-        y: 328
-        width: 201
+        x: 440
+        y: 246
+        width: 220
         height: 82
       alignment: 0
       pivot: {x: 0, y: 0}
@@ -222,9 +222,9 @@ TextureImporter:
       name: batobeauf_11
       rect:
         serializedVersion: 2
-        x: 402
-        y: 328
-        width: 201
+        x: 660
+        y: 246
+        width: 220
         height: 82
       alignment: 0
       pivot: {x: 0, y: 0}
@@ -236,8 +236,8 @@ TextureImporter:
       rect:
         serializedVersion: 2
         x: 0
-        y: 246
-        width: 201
+        y: 164
+        width: 220
         height: 82
       alignment: 0
       pivot: {x: 0, y: 0}
@@ -248,9 +248,9 @@ TextureImporter:
       name: batobeauf_13
       rect:
         serializedVersion: 2
-        x: 201
-        y: 246
-        width: 201
+        x: 220
+        y: 164
+        width: 220
         height: 82
       alignment: 0
       pivot: {x: 0, y: 0}
@@ -261,9 +261,9 @@ TextureImporter:
       name: batobeauf_14
       rect:
         serializedVersion: 2
-        x: 402
-        y: 246
-        width: 201
+        x: 440
+        y: 164
+        width: 220
         height: 82
       alignment: 0
       pivot: {x: 0, y: 0}
@@ -274,9 +274,9 @@ TextureImporter:
       name: batobeauf_15
       rect:
         serializedVersion: 2
-        x: 0
+        x: 660
         y: 164
-        width: 201
+        width: 220
         height: 82
       alignment: 0
       pivot: {x: 0, y: 0}
@@ -287,9 +287,9 @@ TextureImporter:
       name: batobeauf_16
       rect:
         serializedVersion: 2
-        x: 201
-        y: 164
-        width: 201
+        x: 0
+        y: 82
+        width: 220
         height: 82
       alignment: 0
       pivot: {x: 0, y: 0}
@@ -300,9 +300,9 @@ TextureImporter:
       name: batobeauf_17
       rect:
         serializedVersion: 2
-        x: 402
-        y: 164
-        width: 201
+        x: 220
+        y: 82
+        width: 220
         height: 82
       alignment: 0
       pivot: {x: 0, y: 0}
@@ -313,9 +313,9 @@ TextureImporter:
       name: batobeauf_18
       rect:
         serializedVersion: 2
-        x: 0
+        x: 440
         y: 82
-        width: 201
+        width: 220
         height: 82
       alignment: 0
       pivot: {x: 0, y: 0}
@@ -326,9 +326,9 @@ TextureImporter:
       name: batobeauf_19
       rect:
         serializedVersion: 2
-        x: 201
+        x: 660
         y: 82
-        width: 201
+        width: 220
         height: 82
       alignment: 0
       pivot: {x: 0, y: 0}
@@ -339,9 +339,9 @@ TextureImporter:
       name: batobeauf_20
       rect:
         serializedVersion: 2
-        x: 402
-        y: 82
-        width: 201
+        x: 0
+        y: 0
+        width: 220
         height: 82
       alignment: 0
       pivot: {x: 0, y: 0}
@@ -352,9 +352,9 @@ TextureImporter:
       name: batobeauf_21
       rect:
         serializedVersion: 2
-        x: 0
+        x: 220
         y: 0
-        width: 201
+        width: 220
         height: 82
       alignment: 0
       pivot: {x: 0, y: 0}
@@ -365,9 +365,9 @@ TextureImporter:
       name: batobeauf_22
       rect:
         serializedVersion: 2
-        x: 201
+        x: 440
         y: 0
-        width: 201
+        width: 220
         height: 82
       alignment: 0
       pivot: {x: 0, y: 0}
@@ -378,9 +378,9 @@ TextureImporter:
       name: batobeauf_23
       rect:
         serializedVersion: 2
-        x: 402
+        x: 660
         y: 0
-        width: 201
+        width: 220
         height: 82
       alignment: 0
       pivot: {x: 0, y: 0}
