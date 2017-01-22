@@ -5,6 +5,7 @@ using System.Collections;
 public class Waveling_Render : MonoBehaviour {
     public Vector2 ScaleRange;
     public float SecondsForGrowth = 0.7f;
+    public Texture t1;
 
     Transform meshTrans;
     Transform psFoamTrans;
@@ -25,10 +26,12 @@ public class Waveling_Render : MonoBehaviour {
         sc_psFoam = psFoamTrans.localScale;
         meshTrans.localScale = Vector3.zero;
         psFoamTrans.localScale = Vector3.zero;
+
     }
     void Start()
-    {      
-
+    {
+        //Texture t = Resources.Load("Sprites/Wave/BigWave") as Texture;
+        meshTrans.GetComponent<Renderer>().material.SetTexture("_Texture",t1);
     }
 
     // Update is called once per frame
