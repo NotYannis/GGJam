@@ -230,7 +230,6 @@ public class MovingObjectCreator : MonoBehaviour {
             case Type.CalmBeach:
             case Type.MediumBeach:
             case Type.StrongBeach:
-                Debug.Log("zbrah");
                 Destroy(beachPeople[beachPeople.IndexOf(objectToDestroy)].gameObject);
                 beachPeople.Remove(objectToDestroy);
                 break;
@@ -328,5 +327,31 @@ public class MovingObjectCreator : MonoBehaviour {
             }
         }
         return newSprite;
+    }
+
+    public void DestroyEveryone()
+    {
+        Debug.Log("kikoo");
+        int i;
+        for(i = 0; i < beachPeople.Count; ++i)
+        {
+            Destroy(beachPeople[i].gameObject);
+        }
+        for (i = 0; i < underSeaPeople.Count; ++i)
+        {
+            Destroy(underSeaPeople[i].gameObject);
+        }
+        for (i = 0; i < skyPeople.Count; ++i)
+        {
+            Destroy(skyPeople[i].gameObject);
+        }
+        for (i = 0; i < intoSeaPeople.Count; ++i)
+        {
+            Destroy(intoSeaPeople[i].gameObject);
+        }
+        beachPeople.Clear();
+        underSeaPeople.Clear();
+        skyPeople.Clear();
+        intoSeaPeople.Clear();
     }
 }

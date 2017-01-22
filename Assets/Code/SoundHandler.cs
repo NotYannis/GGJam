@@ -3,8 +3,8 @@ using System.Collections;
 
 public class SoundHandler : MonoBehaviour {
 
-    private float soundRate;
-    private float soundCooldown;
+    private float soundRate = 10.0f;
+    private float soundCooldown = 0.0f;
 
 	// Use this for initialization
 	void Start () {
@@ -19,16 +19,16 @@ public class SoundHandler : MonoBehaviour {
         }
     }
 
-    public void LoadSound(string soundName, Vector3 position)
+    public void LoadSound(string soundName, GameObject objectSound)
     {
         if (CanPlaySound())
         {
-            AudioSource sound = Resources.Load("Sound/" + soundName) as AudioSource;
+            AudioSource sound = Resources.Load("Sound/" + soundName, typeof(AudioSource)) as AudioSource;
             if(sound != null)
             {
-                Debug.Log("SOUND" + soundName);
-                GameObject soundObject = Instantiate(sound, position, Quaternion.identity) as GameObject;
-                Destroy(soundObject, sound.clip.length);
+                objectSound.GetComponent<AudioSource>().clip = sound.clip;
+                objectSound.GetComponent<AudioSource>().Play();
+                soundCooldown = soundRate;
             }
         }
     }

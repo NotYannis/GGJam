@@ -48,12 +48,12 @@ public class MovingObject : MonoBehaviour {
 
     public Bounds bound;
 
-    private bool onCreate = true;
+    public bool onCreate;
 
     void Awake()
     {
+        onCreate = true;
         soundSoundSound = GameObject.Find("GameScripts").GetComponent<SoundHandler>();
-        Debug.Log(soundSoundSound);
         objectCreator = GameObject.Find("GameScripts").GetComponent<MovingObjectCreator>();
         move = gameObject.GetComponent<MoveScript>();
 
@@ -83,19 +83,13 @@ public class MovingObject : MonoBehaviour {
                 break;
         }
     }
-
-	// Use this for initialization
-	void Start () {
-
-	}
 	
 	// Update is called once per frame
 	void Update () {
         if (onCreate)
         {
             onCreate = false;
-            Debug.Log(GetComponent<Animator>().runtimeAnimatorController.name);
-            soundSoundSound.LoadSound(GetComponent<Animator>().runtimeAnimatorController.name, transform.position);
+            soundSoundSound.LoadSound(GetComponent<Animator>().runtimeAnimatorController.name, gameObject);
         }
         if (moveRefreshCooldown <= 0.0f)
         {
@@ -106,6 +100,7 @@ public class MovingObject : MonoBehaviour {
         {
             moveRefreshCooldown -= Time.deltaTime;
         }
+
         CheckBounds();
     }
 
