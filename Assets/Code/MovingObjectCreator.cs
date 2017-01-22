@@ -178,7 +178,7 @@ public class MovingObjectCreator : MonoBehaviour {
                     if(beachPeople[i].type == type && beachPeople[i].schedule == schedule)
                     {
                         Destroy(beachPeople[i].gameObject);
-                        beachPeople.RemoveAt(0);
+                        beachPeople.RemoveAt(i);
                         return;
                     }
                 }
@@ -192,7 +192,7 @@ public class MovingObjectCreator : MonoBehaviour {
                     if (underSeaPeople[i].type == type && underSeaPeople[i].schedule == schedule)
                     {
                         Destroy(underSeaPeople[i].gameObject);
-                        underSeaPeople.RemoveAt(0);
+                        underSeaPeople.RemoveAt(i);
                         return;
                     }
                 }
@@ -203,7 +203,7 @@ public class MovingObjectCreator : MonoBehaviour {
                     if (intoSeaPeople[i].schedule == schedule)
                     {
                         Destroy(intoSeaPeople[i].gameObject);
-                        intoSeaPeople.RemoveAt(0);
+                        intoSeaPeople.RemoveAt(i);
                         return;
                     }
                 }
@@ -214,7 +214,7 @@ public class MovingObjectCreator : MonoBehaviour {
                     if (skyPeople[i].schedule == schedule)
                     {
                         Destroy(skyPeople[i].gameObject);
-                        skyPeople.RemoveAt(0);
+                        skyPeople.RemoveAt(i);
                         return;
                     }
                 }
@@ -230,6 +230,7 @@ public class MovingObjectCreator : MonoBehaviour {
             case Type.CalmBeach:
             case Type.MediumBeach:
             case Type.StrongBeach:
+                Debug.Log("zbrah");
                 Destroy(beachPeople[beachPeople.IndexOf(objectToDestroy)].gameObject);
                 beachPeople.Remove(objectToDestroy);
                 break;

@@ -19,12 +19,17 @@ public class SoundHandler : MonoBehaviour {
         }
     }
 
-    public void LoadSound(string soundName)
+    public void LoadSound(string soundName, Vector3 position)
     {
         if (CanPlaySound())
         {
-            AudioSource sound = Resources.Load("Sound/" + soundName, typeof(AudioSource)) as AudioSource;
-            sound.Play();
+            AudioSource sound = Resources.Load("Sound/" + soundName) as AudioSource;
+            if(sound != null)
+            {
+                Debug.Log("SOUND" + soundName);
+                GameObject soundObject = Instantiate(sound, position, Quaternion.identity) as GameObject;
+                Destroy(soundObject, sound.clip.length);
+            }
         }
     }
 

@@ -32,6 +32,7 @@ public class MovingObject : MonoBehaviour {
     public State state;
     public Schedule schedule;
     protected MoveScript move;
+    private SoundHandler soundSoundSound;
 
     private MovingObjectCreator objectCreator;
 
@@ -47,8 +48,12 @@ public class MovingObject : MonoBehaviour {
 
     public Bounds bound;
 
+    private bool onCreate = true;
+
     void Awake()
     {
+        soundSoundSound = GameObject.Find("GameScripts").GetComponent<SoundHandler>();
+        Debug.Log(soundSoundSound);
         objectCreator = GameObject.Find("GameScripts").GetComponent<MovingObjectCreator>();
         move = gameObject.GetComponent<MoveScript>();
 
@@ -67,7 +72,6 @@ public class MovingObject : MonoBehaviour {
             case Type.StrongUnderSea:
                 move.velocity = new Vector2(1.0f, 0.0f);
                 bound = GameObject.Find("UnderSea").GetComponent<BoxCollider2D>().bounds;
-                Debug.Log(bound.min + ", " + bound.max);
                 break;
             case Type.Sky:
                 move.velocity = new Vector2(1.0f, 1.0f);
@@ -87,6 +91,12 @@ public class MovingObject : MonoBehaviour {
 	
 	// Update is called once per frame
 	void Update () {
+        if (onCreate)
+        {
+            onCreate = false;
+            Debug.Log(GetComponent<Animator>().runtimeAnimatorController.name);
+            soundSoundSound.LoadSound(GetComponent<Animator>().runtimeAnimatorController.name, transform.position);
+        }
         if (moveRefreshCooldown <= 0.0f)
         {
             MakeSomeMovement();

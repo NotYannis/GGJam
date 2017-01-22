@@ -50,7 +50,17 @@ public class CrowdController : MonoBehaviour {
                     --jauges[i];
                 }
             }
+            objectCreation.DeleteObject(Type.CalmBeach, globalTime.GetSchedule());
+            objectCreation.DeleteObject(Type.MediumBeach, globalTime.GetSchedule());
+            objectCreation.DeleteObject(Type.StrongBeach, globalTime.GetSchedule());
+            objectCreation.DeleteObject(Type.CalmUnderSea, globalTime.GetSchedule());
+            objectCreation.DeleteObject(Type.MediumBeach, globalTime.GetSchedule());
+            objectCreation.DeleteObject(Type.StrongUnderSea, globalTime.GetSchedule());
+            objectCreation.DeleteObject(Type.Sky, globalTime.GetSchedule());
+            objectCreation.DeleteObject(Type.IntoSea, globalTime.GetSchedule());
             objectCreation.CreateObject(Type.PlateBeach, globalTime.GetSchedule());
+            objectCreation.CreateObject(Type.PlateUnderSea, globalTime.GetSchedule());
+             
         }
         else
         {
