@@ -56,14 +56,13 @@ public class MovingObject : MonoBehaviour {
             case Type.MediumBeach:
             case Type.StrongBeach:
                 move.velocity = new Vector2(1.0f, 1.0f);
-                bound = GameObject.Find("Beach").GetComponent<BoxCollider2D>().bounds;
+                bound = GameObject.Find("").GetComponent<BoxCollider2D>().bounds;
                 break;
             case Type.CalmUnderSea:
             case Type.MediumUnderSea:
             case Type.StrongUnderSea:
-                move.velocity = new Vector2(1.0f, 0.0f);
+                move.velocity = new Vector2(1.0f, 0.2f);
                 bound = GameObject.Find("UnderSea").GetComponent<BoxCollider2D>().bounds;
-                Debug.Log(bound.min + ", " + bound.max);
                 break;
             case Type.Sky:
                 move.velocity = new Vector2(1.0f, 1.0f);
@@ -98,8 +97,6 @@ public class MovingObject : MonoBehaviour {
     protected virtual void MakeSomeMovement()
     {
         move.direction = new Vector2(Random.Range(xLeftDir, xRightDir), Random.Range(yDownDir, yUpDir));
-        Debug.Log(gameObject.name);
-        Debug.Log(move.direction);
     }
 
     public void ChangeState(State _state)
