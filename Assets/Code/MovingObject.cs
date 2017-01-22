@@ -56,7 +56,7 @@ public class MovingObject : MonoBehaviour {
             case Type.MediumBeach:
             case Type.StrongBeach:
                 move.velocity = new Vector2(1.0f, 1.0f);
-                bound = GameObject.Find("").GetComponent<BoxCollider2D>().bounds;
+                bound = GameObject.Find("Beach").GetComponent<BoxCollider2D>().bounds;
                 break;
             case Type.CalmUnderSea:
             case Type.MediumUnderSea:

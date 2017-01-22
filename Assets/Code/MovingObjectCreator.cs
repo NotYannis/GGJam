@@ -44,22 +44,20 @@ public class MovingObjectCreator : MonoBehaviour {
 
     // Use this for initialization
     void Awake () {
-        dayBeachSprites = Resources.LoadAll("Sprites/Day/Beach", typeof(RuntimeAnimatorController)).Cast<RuntimeAnimatorController>().ToArray();
         dayCalmBeachSprites = Resources.LoadAll("Sprites/Day/Beach/Calm", typeof(RuntimeAnimatorController)).Cast<RuntimeAnimatorController>().ToArray();
         dayMediumBeachSprites = Resources.LoadAll("Sprites/Day/Beach/Medium", typeof(RuntimeAnimatorController)).Cast<RuntimeAnimatorController>().ToArray();
         dayStrongBeachSprites = Resources.LoadAll("Sprites/Day/Beach/Strong", typeof(RuntimeAnimatorController)).Cast<RuntimeAnimatorController>().ToArray();
 
-        nightBeachSprites = Resources.LoadAll("Sprites/Night/Beach", typeof(RuntimeAnimatorController)).Cast<RuntimeAnimatorController>().ToArray();
         nightCalmBeachSprites = Resources.LoadAll("Sprites/Night/Beach/Calm", typeof(RuntimeAnimatorController)).Cast<RuntimeAnimatorController>().ToArray();
         nightMediumBeachSprites = Resources.LoadAll("Sprites/Night/Beach/Medium", typeof(RuntimeAnimatorController)).Cast<RuntimeAnimatorController>().ToArray();
         nightStrongBeachSprites = Resources.LoadAll("Sprites/Night/Beach/Strong", typeof(RuntimeAnimatorController)).Cast<RuntimeAnimatorController>().ToArray();
 
-        dayUnderSeaSprites = Resources.LoadAll("Sprites/Day/UnderSea", typeof(RuntimeAnimatorController)).Cast<RuntimeAnimatorController>().ToArray();
+        dayUnderSeaSprites = Resources.LoadAll("Sprites/Day/UnderSea/Plate", typeof(RuntimeAnimatorController)).Cast<RuntimeAnimatorController>().ToArray();
         dayCalmUnderSeaSprites = Resources.LoadAll("Sprites/Day/UnderSea/Calm", typeof(RuntimeAnimatorController)).Cast<RuntimeAnimatorController>().ToArray();
         dayMediumUnderSeaSprites = Resources.LoadAll("Sprites/Day/UnderSea/Medium", typeof(RuntimeAnimatorController)).Cast<RuntimeAnimatorController>().ToArray();
         dayStrongUnderSeaSprites = Resources.LoadAll("Sprites/Day/UnderSea/Strong", typeof(RuntimeAnimatorController)).Cast<RuntimeAnimatorController>().ToArray();
 
-        nightUnderSeaSprites = Resources.LoadAll("Sprites/Night/UnderSea", typeof(RuntimeAnimatorController)).Cast<RuntimeAnimatorController>().ToArray();
+        nightUnderSeaSprites = Resources.LoadAll("Sprites/Night/UnderSea/Plate", typeof(RuntimeAnimatorController)).Cast<RuntimeAnimatorController>().ToArray();
         nightCalmUnderSeaSprites = Resources.LoadAll("Sprites/Night/UnderSea/Calm", typeof(RuntimeAnimatorController)).Cast<RuntimeAnimatorController>().ToArray();
         nightMediumUnderSeaSprites = Resources.LoadAll("Sprites/Night/UnderSea/Medium", typeof(RuntimeAnimatorController)).Cast<RuntimeAnimatorController>().ToArray();
         nightStrongUnderSeaSprites = Resources.LoadAll("Sprites/Night/UnderSea/Strong", typeof(RuntimeAnimatorController)).Cast<RuntimeAnimatorController>().ToArray();
