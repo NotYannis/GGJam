@@ -24,11 +24,13 @@ public class GodController : MonoBehaviour {
 
         if (waveCharging && wavePower < 1.5f)
         {
+            gameObject.GetComponent<Animator>().SetBool("PrepareWave", true);
             wavePower += (Time.deltaTime/2);
             godArm.transform.position = new Vector3(godArm.transform.position.x, godArm.transform.position.y + wavePower / 100, godArm.transform.position.z);
         }
 
         if (Input.GetKeyUp(KeyCode.Space)){
+            gameObject.GetComponent<Animator>().SetBool("PrepareWave", false);
             sea.CreateWave(wavePower);
             wavePower = 0;
             godArm.transform.position = godArmPosition;

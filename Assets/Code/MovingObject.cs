@@ -63,6 +63,7 @@ public class MovingObject : MonoBehaviour {
             case Type.StrongUnderSea:
                 move.velocity = new Vector2(1.0f, 0.0f);
                 bound = GameObject.Find("UnderSea").GetComponent<BoxCollider2D>().bounds;
+                Debug.Log(bound.min + ", " + bound.max);
                 break;
             case Type.Sky:
                 move.velocity = new Vector2(1.0f, 1.0f);
@@ -91,15 +92,14 @@ public class MovingObject : MonoBehaviour {
         {
             moveRefreshCooldown -= Time.deltaTime;
         }
-        if (!getOut)
-        {
-            CheckBounds();
-        }
+        CheckBounds();
     }
 
     protected virtual void MakeSomeMovement()
     {
         move.direction = new Vector2(Random.Range(xLeftDir, xRightDir), Random.Range(yDownDir, yUpDir));
+        Debug.Log(gameObject.name);
+        Debug.Log(move.direction);
     }
 
     public void ChangeState(State _state)
@@ -112,6 +112,7 @@ public class MovingObject : MonoBehaviour {
         if (transform.position.y > bound.max.y)
         {
             move.direction.y += (bound.max.y - transform.position.y) * 0.1f;
+
         }
         if(transform.position.y < bound.min.y)
         {
@@ -133,7 +134,5 @@ public class MovingObject : MonoBehaviour {
                 move.direction.x -= (transform.position.x - bound.min.x) * 0.1f;
             }
         }
-
-
     }
 }
