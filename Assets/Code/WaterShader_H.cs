@@ -34,6 +34,7 @@ public class WaterShader_H : MonoBehaviour {
 
         StartCoroutine(delayedStart());
         GetComponent<WaterShader_H>().enabled = false;
+   
     }
 
 	void StartDelayed () {
@@ -46,7 +47,8 @@ public class WaterShader_H : MonoBehaviour {
         for (int i = 0; i < NB_Scrollers; i++)
         {
             texScrollerInfos[i] = new TexScrollerInfo(shader.GetVector(shaderGetTexScrollParams[i]), WaveSpeedMult);
-        } 
+        }
+        GameObject.Find("GAME").GetComponent<TimeOfDay>().Notify_EnteredScene(gameObject);
     }
 	
 	// Update is called once per frame
