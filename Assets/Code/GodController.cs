@@ -18,13 +18,17 @@ public class GodController : MonoBehaviour {
     private Vector3 godArmPosition;
     private CrowdController crowd;
     // Use this for initialization
-    void Start () {
-        waveChargeDebug = GameObject.Find("DEBUG/waveCharge").GetComponent<Text>();
-        sea = GameObject.Find("Sea").GetComponent<SeaScript>();
+    void Awake()
+    {
+        wavePlaceHolder = Resources.Load("Prefabs/WavePH") as GameObject;
         godArm = GameObject.Find("Arm");
+    }
+    void Start () {
+        //waveChargeDebug = GameObject.Find("DEBUG/waveCharge").GetComponent<Text>();
+        //sea = GameObject.Find("Sea").GetComponent<SeaScript>();
+
 
         godArmPosition = godArm.transform.position;
-        wavePlaceHolder = Resources.Load("Prefabs/WavePH") as GameObject;
         crowd = GameObject.Find("GameScripts").GetComponent<CrowdController>();
     }
 	
@@ -43,7 +47,6 @@ public class GodController : MonoBehaviour {
 
         if (Input.GetKeyUp(KeyCode.Space)){
             gameObject.GetComponent<Animator>().SetBool("PrepareWave", false);
-            sea.CreateWave(wavePower);
             wavePower = 0;
             godArm.transform.position = godArmPosition;
 
@@ -54,9 +57,9 @@ public class GodController : MonoBehaviour {
 
 	}
 
-
     void SpawnWave()
     {
+        if (wavePlaceHolder== null) { Debug.Log("FUCK"); }
         chargingWaveObj = Instantiate(wavePlaceHolder, waveStartPosition.position, Quaternion.identity) as GameObject;
         chargingWave = chargingWaveObj.GetComponent<WavelingObject>();
         chargingWave.INIT(crowd, maxWavePower, waveEndPosition.position.x);

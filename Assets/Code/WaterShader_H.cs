@@ -26,7 +26,7 @@ public class WaterShader_H : MonoBehaviour {
 
     IEnumerator delayedStart()
     {
-        yield return new WaitForSeconds(.1f);
+        yield return new WaitForSeconds(.3f);
         StartDelayed();
     }
     void Start()
@@ -56,9 +56,11 @@ public class WaterShader_H : MonoBehaviour {
         {
             texScrollerInfos[i].Pan(Time.deltaTime * WaveSpeedMult);
             S_TextureCoordinates[i * 2] = texScrollerInfos[i].uvCoordinates.x;
-            S_TextureCoordinates[(i * 2) +1] = texScrollerInfos[i].uvCoordinates.y;
+            S_TextureCoordinates[(i * 2) +1] = texScrollerInfos[i].uvCoordinates.y; 
+            //Debug.Log("> "+S_TextureCoordinates[0])
         }
-        //shader.SetFloatArray(shaderGiveTexScrollUVs, S_TextureCoordinates);
+       
+        shader.SetFloatArray(shaderGiveTexScrollUVs, S_TextureCoordinates);
        
     }
 
