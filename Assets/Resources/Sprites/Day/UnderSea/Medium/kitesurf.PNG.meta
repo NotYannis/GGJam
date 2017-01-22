@@ -1,9 +1,33 @@
 fileFormatVersion: 2
 guid: 2a48cd81ab22b214a9c3d45e71c3685d
-timeCreated: 1485043038
+timeCreated: 1485060011
 licenseType: Free
 TextureImporter:
-  fileIDToRecycleName: {}
+  fileIDToRecycleName:
+    21300000: kitesurf_0
+    21300002: kitesurf_1
+    21300004: kitesurf_2
+    21300006: kitesurf_3
+    21300008: kitesurf_4
+    21300010: kitesurf_5
+    21300012: kitesurf_6
+    21300014: kitesurf_7
+    21300016: kitesurf_8
+    21300018: kitesurf_9
+    21300020: kitesurf_10
+    21300022: kitesurf_11
+    21300024: kitesurf_12
+    21300026: kitesurf_13
+    21300028: kitesurf_14
+    21300030: kitesurf_15
+    21300032: kitesurf_16
+    21300034: kitesurf_17
+    21300036: kitesurf_18
+    21300038: kitesurf_19
+    21300040: kitesurf_20
+    21300042: kitesurf_21
+    21300044: kitesurf_22
+    21300046: kitesurf_23
   serializedVersion: 2
   mipmaps:
     mipMapMode: 0
@@ -30,15 +54,14 @@ TextureImporter:
   maxTextureSize: 2048
   textureSettings:
     filterMode: -1
-    aniso: -1
+    aniso: 16
     mipBias: -1
     wrapMode: 1
   nPOTScale: 0
   lightmap: 0
   rGBM: 0
   compressionQuality: 50
-  allowsAlphaSplitting: 0
-  spriteMode: 1
+  spriteMode: 2
   spriteExtrude: 1
   spriteMeshType: 1
   alignment: 0
@@ -51,7 +74,319 @@ TextureImporter:
   buildTargetSettings: []
   spriteSheet:
     serializedVersion: 2
-    sprites: []
+    sprites:
+    - serializedVersion: 2
+      name: kitesurf_0
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 651
+        width: 236
+        height: 217
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: kitesurf_1
+      rect:
+        serializedVersion: 2
+        x: 236
+        y: 651
+        width: 236
+        height: 217
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: kitesurf_2
+      rect:
+        serializedVersion: 2
+        x: 472
+        y: 651
+        width: 236
+        height: 217
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: kitesurf_3
+      rect:
+        serializedVersion: 2
+        x: 708
+        y: 651
+        width: 236
+        height: 217
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: kitesurf_4
+      rect:
+        serializedVersion: 2
+        x: 944
+        y: 651
+        width: 236
+        height: 217
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: kitesurf_5
+      rect:
+        serializedVersion: 2
+        x: 1180
+        y: 651
+        width: 236
+        height: 217
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: kitesurf_6
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 434
+        width: 236
+        height: 217
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: kitesurf_7
+      rect:
+        serializedVersion: 2
+        x: 236
+        y: 434
+        width: 236
+        height: 217
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: kitesurf_8
+      rect:
+        serializedVersion: 2
+        x: 472
+        y: 434
+        width: 236
+        height: 217
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: kitesurf_9
+      rect:
+        serializedVersion: 2
+        x: 708
+        y: 434
+        width: 236
+        height: 217
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: kitesurf_10
+      rect:
+        serializedVersion: 2
+        x: 944
+        y: 434
+        width: 236
+        height: 217
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: kitesurf_11
+      rect:
+        serializedVersion: 2
+        x: 1180
+        y: 434
+        width: 236
+        height: 217
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: kitesurf_12
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 217
+        width: 236
+        height: 217
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: kitesurf_13
+      rect:
+        serializedVersion: 2
+        x: 236
+        y: 217
+        width: 236
+        height: 217
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: kitesurf_14
+      rect:
+        serializedVersion: 2
+        x: 472
+        y: 217
+        width: 236
+        height: 217
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: kitesurf_15
+      rect:
+        serializedVersion: 2
+        x: 708
+        y: 217
+        width: 236
+        height: 217
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: kitesurf_16
+      rect:
+        serializedVersion: 2
+        x: 944
+        y: 217
+        width: 236
+        height: 217
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: kitesurf_17
+      rect:
+        serializedVersion: 2
+        x: 1180
+        y: 217
+        width: 236
+        height: 217
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: kitesurf_18
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 0
+        width: 236
+        height: 217
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: kitesurf_19
+      rect:
+        serializedVersion: 2
+        x: 236
+        y: 0
+        width: 236
+        height: 217
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: kitesurf_20
+      rect:
+        serializedVersion: 2
+        x: 472
+        y: 0
+        width: 236
+        height: 217
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: kitesurf_21
+      rect:
+        serializedVersion: 2
+        x: 708
+        y: 0
+        width: 236
+        height: 217
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: kitesurf_22
+      rect:
+        serializedVersion: 2
+        x: 944
+        y: 0
+        width: 236
+        height: 217
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: kitesurf_23
+      rect:
+        serializedVersion: 2
+        x: 1180
+        y: 0
+        width: 236
+        height: 217
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
     outline: []
   spritePackingTag: 
   userData: 

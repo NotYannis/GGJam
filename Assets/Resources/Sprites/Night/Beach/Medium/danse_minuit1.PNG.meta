@@ -1,9 +1,33 @@
 fileFormatVersion: 2
 guid: b74a8fc9ea00b9742bfdb33bc134eed3
-timeCreated: 1485043043
+timeCreated: 1485060159
 licenseType: Free
 TextureImporter:
-  fileIDToRecycleName: {}
+  fileIDToRecycleName:
+    21300000: danse_minuit1_0
+    21300002: danse_minuit1_1
+    21300004: danse_minuit1_2
+    21300006: danse_minuit1_3
+    21300008: danse_minuit1_4
+    21300010: danse_minuit1_5
+    21300012: danse_minuit1_6
+    21300014: danse_minuit1_7
+    21300016: danse_minuit1_8
+    21300018: danse_minuit1_9
+    21300020: danse_minuit1_10
+    21300022: danse_minuit1_11
+    21300024: danse_minuit1_12
+    21300026: danse_minuit1_13
+    21300028: danse_minuit1_14
+    21300030: danse_minuit1_15
+    21300032: danse_minuit1_16
+    21300034: danse_minuit1_17
+    21300036: danse_minuit1_18
+    21300038: danse_minuit1_19
+    21300040: danse_minuit1_20
+    21300042: danse_minuit1_21
+    21300044: danse_minuit1_22
+    21300046: danse_minuit1_23
   serializedVersion: 2
   mipmaps:
     mipMapMode: 0
@@ -30,15 +54,14 @@ TextureImporter:
   maxTextureSize: 2048
   textureSettings:
     filterMode: -1
-    aniso: -1
+    aniso: 16
     mipBias: -1
     wrapMode: 1
   nPOTScale: 0
   lightmap: 0
   rGBM: 0
   compressionQuality: 50
-  allowsAlphaSplitting: 0
-  spriteMode: 1
+  spriteMode: 2
   spriteExtrude: 1
   spriteMeshType: 1
   alignment: 0
@@ -51,7 +74,319 @@ TextureImporter:
   buildTargetSettings: []
   spriteSheet:
     serializedVersion: 2
-    sprites: []
+    sprites:
+    - serializedVersion: 2
+      name: danse_minuit1_0
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 246
+        width: 62
+        height: 82
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: danse_minuit1_1
+      rect:
+        serializedVersion: 2
+        x: 62
+        y: 246
+        width: 62
+        height: 82
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: danse_minuit1_2
+      rect:
+        serializedVersion: 2
+        x: 124
+        y: 246
+        width: 62
+        height: 82
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: danse_minuit1_3
+      rect:
+        serializedVersion: 2
+        x: 186
+        y: 246
+        width: 62
+        height: 82
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: danse_minuit1_4
+      rect:
+        serializedVersion: 2
+        x: 248
+        y: 246
+        width: 62
+        height: 82
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: danse_minuit1_5
+      rect:
+        serializedVersion: 2
+        x: 310
+        y: 246
+        width: 62
+        height: 82
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: danse_minuit1_6
+      rect:
+        serializedVersion: 2
+        x: 372
+        y: 246
+        width: 62
+        height: 82
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: danse_minuit1_7
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 164
+        width: 62
+        height: 82
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: danse_minuit1_8
+      rect:
+        serializedVersion: 2
+        x: 62
+        y: 164
+        width: 62
+        height: 82
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: danse_minuit1_9
+      rect:
+        serializedVersion: 2
+        x: 124
+        y: 164
+        width: 62
+        height: 82
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: danse_minuit1_10
+      rect:
+        serializedVersion: 2
+        x: 186
+        y: 164
+        width: 62
+        height: 82
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: danse_minuit1_11
+      rect:
+        serializedVersion: 2
+        x: 248
+        y: 164
+        width: 62
+        height: 82
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: danse_minuit1_12
+      rect:
+        serializedVersion: 2
+        x: 310
+        y: 164
+        width: 62
+        height: 82
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: danse_minuit1_13
+      rect:
+        serializedVersion: 2
+        x: 372
+        y: 164
+        width: 62
+        height: 82
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: danse_minuit1_14
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 82
+        width: 62
+        height: 82
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: danse_minuit1_15
+      rect:
+        serializedVersion: 2
+        x: 62
+        y: 82
+        width: 62
+        height: 82
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: danse_minuit1_16
+      rect:
+        serializedVersion: 2
+        x: 124
+        y: 82
+        width: 62
+        height: 82
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: danse_minuit1_17
+      rect:
+        serializedVersion: 2
+        x: 186
+        y: 82
+        width: 62
+        height: 82
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: danse_minuit1_18
+      rect:
+        serializedVersion: 2
+        x: 248
+        y: 82
+        width: 62
+        height: 82
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: danse_minuit1_19
+      rect:
+        serializedVersion: 2
+        x: 310
+        y: 82
+        width: 62
+        height: 82
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: danse_minuit1_20
+      rect:
+        serializedVersion: 2
+        x: 372
+        y: 82
+        width: 62
+        height: 82
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: danse_minuit1_21
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 0
+        width: 62
+        height: 82
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: danse_minuit1_22
+      rect:
+        serializedVersion: 2
+        x: 62
+        y: 0
+        width: 62
+        height: 82
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: danse_minuit1_23
+      rect:
+        serializedVersion: 2
+        x: 124
+        y: 0
+        width: 62
+        height: 82
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
     outline: []
   spritePackingTag: 
   userData: 

@@ -14,61 +14,61 @@ public class MovingObjectCreator : MonoBehaviour {
     public GameObject skyPrefab;
     public GameObject intoSeaPrefab;
 
-    public Sprite[] dayCalmBeachSprites;
-    public Sprite[] dayMediumBeachSprites;
-    public Sprite[] dayStrongBeachSprites;
-    public Sprite[] dayBeachSprites;
+    public RuntimeAnimatorController[] dayCalmBeachSprites;
+    public RuntimeAnimatorController[] dayMediumBeachSprites;
+    public RuntimeAnimatorController[] dayStrongBeachSprites;
+    public RuntimeAnimatorController[] dayBeachSprites;
 
-    public Sprite[] nightCalmBeachSprites;
-    public Sprite[] nightMediumBeachSprites;
-    public Sprite[] nightStrongBeachSprites;
-    public Sprite[] nightBeachSprites;
+    public RuntimeAnimatorController[] nightCalmBeachSprites;
+    public RuntimeAnimatorController[] nightMediumBeachSprites;
+    public RuntimeAnimatorController[] nightStrongBeachSprites;
+    public RuntimeAnimatorController[] nightBeachSprites;
 
-    public Sprite[] dayUnderSeaSprites;
-    public Sprite[] dayCalmUnderSeaSprites;
-    public Sprite[] dayMediumUnderSeaSprites;
-    public Sprite[] dayStrongUnderSeaSprites;
+    public RuntimeAnimatorController[] dayUnderSeaSprites;
+    public RuntimeAnimatorController[] dayCalmUnderSeaSprites;
+    public RuntimeAnimatorController[] dayMediumUnderSeaSprites;
+    public RuntimeAnimatorController[] dayStrongUnderSeaSprites;
 
-    public Sprite[] nightUnderSeaSprites;
-    public Sprite[] nightCalmUnderSeaSprites;
-    public Sprite[] nightMediumUnderSeaSprites;
-    public Sprite[] nightStrongUnderSeaSprites;
+    public RuntimeAnimatorController[] nightUnderSeaSprites;
+    public RuntimeAnimatorController[] nightCalmUnderSeaSprites;
+    public RuntimeAnimatorController[] nightMediumUnderSeaSprites;
+    public RuntimeAnimatorController[] nightStrongUnderSeaSprites;
 
-    public Sprite[] dayIntoSeaSprites;
-    public Sprite[] nightIntoSeaSprites;
+    public RuntimeAnimatorController[] dayIntoSeaSprites;
+    public RuntimeAnimatorController[] nightIntoSeaSprites;
 
-    public Sprite[] daySkySprites;
-    public Sprite[] nightSkySprites;
+    public RuntimeAnimatorController[] daySkySprites;
+    public RuntimeAnimatorController[] nightSkySprites;
 
     public int maxPeople;
 
     // Use this for initialization
     void Awake () {
-        dayBeachSprites = Resources.LoadAll("Sprites/Day/Beach", typeof(Sprite)).Cast<Sprite>().ToArray();
-        dayCalmBeachSprites = Resources.LoadAll("Sprites/Day/Beach/Calm", typeof(Sprite)).Cast<Sprite>().ToArray();
-        dayMediumBeachSprites = Resources.LoadAll("Sprites/Day/Beach/Medium", typeof(Sprite)).Cast<Sprite>().ToArray();
-        dayStrongBeachSprites = Resources.LoadAll("Sprites/Day/Beach/Strong", typeof(Sprite)).Cast<Sprite>().ToArray();
+        dayBeachSprites = Resources.LoadAll("Sprites/Day/Beach", typeof(RuntimeAnimatorController)).Cast<RuntimeAnimatorController>().ToArray();
+        dayCalmBeachSprites = Resources.LoadAll("Sprites/Day/Beach/Calm", typeof(RuntimeAnimatorController)).Cast<RuntimeAnimatorController>().ToArray();
+        dayMediumBeachSprites = Resources.LoadAll("Sprites/Day/Beach/Medium", typeof(RuntimeAnimatorController)).Cast<RuntimeAnimatorController>().ToArray();
+        dayStrongBeachSprites = Resources.LoadAll("Sprites/Day/Beach/Strong", typeof(RuntimeAnimatorController)).Cast<RuntimeAnimatorController>().ToArray();
 
-        nightBeachSprites = Resources.LoadAll("Sprites/Night/Beach", typeof(Sprite)).Cast<Sprite>().ToArray();
-        nightCalmBeachSprites = Resources.LoadAll("Sprites/Night/Beach/Calm", typeof(Sprite)).Cast<Sprite>().ToArray();
-        nightMediumBeachSprites = Resources.LoadAll("Sprites/Night/Beach/Medium", typeof(Sprite)).Cast<Sprite>().ToArray();
-        nightStrongBeachSprites = Resources.LoadAll("Sprites/Night/Beach/Strong", typeof(Sprite)).Cast<Sprite>().ToArray();
+        nightBeachSprites = Resources.LoadAll("Sprites/Night/Beach", typeof(RuntimeAnimatorController)).Cast<RuntimeAnimatorController>().ToArray();
+        nightCalmBeachSprites = Resources.LoadAll("Sprites/Night/Beach/Calm", typeof(RuntimeAnimatorController)).Cast<RuntimeAnimatorController>().ToArray();
+        nightMediumBeachSprites = Resources.LoadAll("Sprites/Night/Beach/Medium", typeof(RuntimeAnimatorController)).Cast<RuntimeAnimatorController>().ToArray();
+        nightStrongBeachSprites = Resources.LoadAll("Sprites/Night/Beach/Strong", typeof(RuntimeAnimatorController)).Cast<RuntimeAnimatorController>().ToArray();
 
-        dayUnderSeaSprites = Resources.LoadAll("Sprites/Day/UnderSea", typeof(Sprite)).Cast<Sprite>().ToArray();
-        dayCalmUnderSeaSprites = Resources.LoadAll("Sprites/Day/UnderSea/Calm", typeof(Sprite)).Cast<Sprite>().ToArray();
-        dayMediumUnderSeaSprites = Resources.LoadAll("Sprites/Day/UnderSea/Medium", typeof(Sprite)).Cast<Sprite>().ToArray();
-        dayStrongUnderSeaSprites = Resources.LoadAll("Sprites/Day/UnderSea/Strong", typeof(Sprite)).Cast<Sprite>().ToArray();
+        dayUnderSeaSprites = Resources.LoadAll("Sprites/Day/UnderSea", typeof(RuntimeAnimatorController)).Cast<RuntimeAnimatorController>().ToArray();
+        dayCalmUnderSeaSprites = Resources.LoadAll("Sprites/Day/UnderSea/Calm", typeof(RuntimeAnimatorController)).Cast<RuntimeAnimatorController>().ToArray();
+        dayMediumUnderSeaSprites = Resources.LoadAll("Sprites/Day/UnderSea/Medium", typeof(RuntimeAnimatorController)).Cast<RuntimeAnimatorController>().ToArray();
+        dayStrongUnderSeaSprites = Resources.LoadAll("Sprites/Day/UnderSea/Strong", typeof(RuntimeAnimatorController)).Cast<RuntimeAnimatorController>().ToArray();
 
-        nightUnderSeaSprites = Resources.LoadAll("Sprites/Night/UnderSea", typeof(Sprite)).Cast<Sprite>().ToArray();
-        nightCalmUnderSeaSprites = Resources.LoadAll("Sprites/Night/UnderSea/Calm", typeof(Sprite)).Cast<Sprite>().ToArray();
-        nightMediumUnderSeaSprites = Resources.LoadAll("Sprites/Night/UnderSea/Medium", typeof(Sprite)).Cast<Sprite>().ToArray();
-        nightStrongUnderSeaSprites = Resources.LoadAll("Sprites/Night/UnderSea/Strong", typeof(Sprite)).Cast<Sprite>().ToArray();
+        nightUnderSeaSprites = Resources.LoadAll("Sprites/Night/UnderSea", typeof(RuntimeAnimatorController)).Cast<RuntimeAnimatorController>().ToArray();
+        nightCalmUnderSeaSprites = Resources.LoadAll("Sprites/Night/UnderSea/Calm", typeof(RuntimeAnimatorController)).Cast<RuntimeAnimatorController>().ToArray();
+        nightMediumUnderSeaSprites = Resources.LoadAll("Sprites/Night/UnderSea/Medium", typeof(RuntimeAnimatorController)).Cast<RuntimeAnimatorController>().ToArray();
+        nightStrongUnderSeaSprites = Resources.LoadAll("Sprites/Night/UnderSea/Strong", typeof(RuntimeAnimatorController)).Cast<RuntimeAnimatorController>().ToArray();
 
-        dayIntoSeaSprites = Resources.LoadAll("Sprites/Day/IntoSea", typeof(Sprite)).Cast<Sprite>().ToArray();
-        nightIntoSeaSprites = Resources.LoadAll("Sprites/Night/IntoSea", typeof(Sprite)).Cast<Sprite>().ToArray();
+        dayIntoSeaSprites = Resources.LoadAll("Sprites/Day/IntoSea", typeof(RuntimeAnimatorController)).Cast<RuntimeAnimatorController>().ToArray();
+        nightIntoSeaSprites = Resources.LoadAll("Sprites/Night/IntoSea", typeof(RuntimeAnimatorController)).Cast<RuntimeAnimatorController>().ToArray();
 
-        daySkySprites = Resources.LoadAll("Sprites/Day/Sky", typeof(Sprite)).Cast<Sprite>().ToArray();
-        nightSkySprites = Resources.LoadAll("Sprites/Night/Sky", typeof(Sprite)).Cast<Sprite>().ToArray();
+        daySkySprites = Resources.LoadAll("Sprites/Day/Sky", typeof(RuntimeAnimatorController)).Cast<RuntimeAnimatorController>().ToArray();
+        nightSkySprites = Resources.LoadAll("Sprites/Night/Sky", typeof(RuntimeAnimatorController)).Cast<RuntimeAnimatorController>().ToArray();
 
         intoSeaPrefab = Resources.Load("Prefabs/IntoSeaPrefab") as GameObject;
         skyPrefab = Resources.Load("Prefabs/SkyPrefab") as GameObject;
@@ -119,7 +119,7 @@ public class MovingObjectCreator : MonoBehaviour {
         newObject.transform.position = position;
         newObjMove.type = type;
         newObjMove.schedule = schedule;
-        newObject.GetComponent<SpriteRenderer>().sprite = GetSprite(type, schedule);
+        newObject.GetComponent<Animator>().runtimeAnimatorController = GetAnimator(type, schedule);
 
         switch (type)
         {
@@ -243,9 +243,9 @@ public class MovingObjectCreator : MonoBehaviour {
         }
     }
 
-    public Sprite GetSprite(Type type, Schedule schedule)
+    public RuntimeAnimatorController GetAnimator(Type type, Schedule schedule)
     {
-        Sprite newSprite = new Sprite();
+        RuntimeAnimatorController newSprite = new RuntimeAnimatorController();
         if(schedule == Schedule.Day)
         {
             switch (type)
@@ -256,9 +256,9 @@ public class MovingObjectCreator : MonoBehaviour {
                 case Type.MediumBeach:
                     newSprite = dayMediumBeachSprites[Random.Range(0, dayMediumBeachSprites.Length - 1)];
                     break;
-                case Type.StrongBeach:
-                    newSprite = dayStrongBeachSprites[Random.Range(0, dayStrongBeachSprites.Length - 1)];
-                    break;
+                //case Type.StrongBeach:
+                  //  newSprite = dayStrongBeachSprites[Random.Range(0, dayStrongBeachSprites.Length - 1)];
+                   // break;
                 case Type.CalmUnderSea:
                     newSprite = dayCalmUnderSeaSprites[Random.Range(0, dayCalmUnderSeaSprites.Length - 1)];
                     break;

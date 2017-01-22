@@ -15,5 +15,7 @@ public class MoveScript : MonoBehaviour {
 	// Update is called once per frame
 	void Update () {
         rig.velocity = new Vector2(velocity.x * direction.x, velocity.y * direction.y);
+        if(Mathf.Sign(rig.velocity.x) != Mathf.Sign(transform.localScale.x))
+        transform.localScale = new Vector2(transform.localScale.x * Mathf.Sign(rig.velocity.x), transform.localScale.y);
 	}
 }

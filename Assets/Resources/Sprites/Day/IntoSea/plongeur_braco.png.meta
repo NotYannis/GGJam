@@ -1,9 +1,33 @@
 fileFormatVersion: 2
 guid: 9c926c83ad730254581cc1c8e674643d
-timeCreated: 1485043042
+timeCreated: 1485060458
 licenseType: Free
 TextureImporter:
-  fileIDToRecycleName: {}
+  fileIDToRecycleName:
+    21300000: plongeur_braco_0
+    21300002: plongeur_braco_1
+    21300004: plongeur_braco_2
+    21300006: plongeur_braco_3
+    21300008: plongeur_braco_4
+    21300010: plongeur_braco_5
+    21300012: plongeur_braco_6
+    21300014: plongeur_braco_7
+    21300016: plongeur_braco_8
+    21300018: plongeur_braco_9
+    21300020: plongeur_braco_10
+    21300022: plongeur_braco_11
+    21300024: plongeur_braco_12
+    21300026: plongeur_braco_13
+    21300028: plongeur_braco_14
+    21300030: plongeur_braco_15
+    21300032: plongeur_braco_16
+    21300034: plongeur_braco_17
+    21300036: plongeur_braco_18
+    21300038: plongeur_braco_19
+    21300040: plongeur_braco_20
+    21300042: plongeur_braco_21
+    21300044: plongeur_braco_22
+    21300046: plongeur_braco_23
   serializedVersion: 2
   mipmaps:
     mipMapMode: 0
@@ -37,8 +61,7 @@ TextureImporter:
   lightmap: 0
   rGBM: 0
   compressionQuality: 50
-  allowsAlphaSplitting: 0
-  spriteMode: 1
+  spriteMode: 2
   spriteExtrude: 1
   spriteMeshType: 1
   alignment: 0
@@ -46,10 +69,324 @@ TextureImporter:
   spriteBorder: {x: 0, y: 0, z: 0, w: 0}
   spritePixelsToUnits: 100
   alphaIsTransparency: 1
+  spriteTessellationDetail: -1
   textureType: 8
   buildTargetSettings: []
   spriteSheet:
-    sprites: []
+    serializedVersion: 2
+    sprites:
+    - serializedVersion: 2
+      name: plongeur_braco_0
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 507
+        width: 116
+        height: 169
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: plongeur_braco_1
+      rect:
+        serializedVersion: 2
+        x: 116
+        y: 507
+        width: 116
+        height: 169
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: plongeur_braco_2
+      rect:
+        serializedVersion: 2
+        x: 232
+        y: 507
+        width: 116
+        height: 169
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: plongeur_braco_3
+      rect:
+        serializedVersion: 2
+        x: 348
+        y: 507
+        width: 116
+        height: 169
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: plongeur_braco_4
+      rect:
+        serializedVersion: 2
+        x: 464
+        y: 507
+        width: 116
+        height: 169
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: plongeur_braco_5
+      rect:
+        serializedVersion: 2
+        x: 580
+        y: 507
+        width: 116
+        height: 169
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: plongeur_braco_6
+      rect:
+        serializedVersion: 2
+        x: 696
+        y: 507
+        width: 116
+        height: 169
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: plongeur_braco_7
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 338
+        width: 116
+        height: 169
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: plongeur_braco_8
+      rect:
+        serializedVersion: 2
+        x: 116
+        y: 338
+        width: 116
+        height: 169
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: plongeur_braco_9
+      rect:
+        serializedVersion: 2
+        x: 232
+        y: 338
+        width: 116
+        height: 169
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: plongeur_braco_10
+      rect:
+        serializedVersion: 2
+        x: 348
+        y: 338
+        width: 116
+        height: 169
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: plongeur_braco_11
+      rect:
+        serializedVersion: 2
+        x: 464
+        y: 338
+        width: 116
+        height: 169
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: plongeur_braco_12
+      rect:
+        serializedVersion: 2
+        x: 580
+        y: 338
+        width: 116
+        height: 169
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: plongeur_braco_13
+      rect:
+        serializedVersion: 2
+        x: 696
+        y: 338
+        width: 116
+        height: 169
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: plongeur_braco_14
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 169
+        width: 116
+        height: 169
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: plongeur_braco_15
+      rect:
+        serializedVersion: 2
+        x: 116
+        y: 169
+        width: 116
+        height: 169
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: plongeur_braco_16
+      rect:
+        serializedVersion: 2
+        x: 232
+        y: 169
+        width: 116
+        height: 169
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: plongeur_braco_17
+      rect:
+        serializedVersion: 2
+        x: 348
+        y: 169
+        width: 116
+        height: 169
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: plongeur_braco_18
+      rect:
+        serializedVersion: 2
+        x: 464
+        y: 169
+        width: 116
+        height: 169
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: plongeur_braco_19
+      rect:
+        serializedVersion: 2
+        x: 580
+        y: 169
+        width: 116
+        height: 169
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: plongeur_braco_20
+      rect:
+        serializedVersion: 2
+        x: 696
+        y: 169
+        width: 116
+        height: 169
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: plongeur_braco_21
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 0
+        width: 116
+        height: 169
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: plongeur_braco_22
+      rect:
+        serializedVersion: 2
+        x: 116
+        y: 0
+        width: 116
+        height: 169
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: plongeur_braco_23
+      rect:
+        serializedVersion: 2
+        x: 232
+        y: 0
+        width: 116
+        height: 169
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
     outline: []
   spritePackingTag: 
   userData: 

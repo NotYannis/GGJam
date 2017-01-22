@@ -1,9 +1,33 @@
 fileFormatVersion: 2
 guid: 17e87cfbd5702184ea4b024442f79396
-timeCreated: 1485043037
+timeCreated: 1485059980
 licenseType: Free
 TextureImporter:
-  fileIDToRecycleName: {}
+  fileIDToRecycleName:
+    21300000: "bou\xE9e1_0"
+    21300002: "bou\xE9e1_1"
+    21300004: "bou\xE9e1_2"
+    21300006: "bou\xE9e1_3"
+    21300008: "bou\xE9e1_4"
+    21300010: "bou\xE9e1_5"
+    21300012: "bou\xE9e1_6"
+    21300014: "bou\xE9e1_7"
+    21300016: "bou\xE9e1_8"
+    21300018: "bou\xE9e1_9"
+    21300020: "bou\xE9e1_10"
+    21300022: "bou\xE9e1_11"
+    21300024: "bou\xE9e1_12"
+    21300026: "bou\xE9e1_13"
+    21300028: "bou\xE9e1_14"
+    21300030: "bou\xE9e1_15"
+    21300032: "bou\xE9e1_16"
+    21300034: "bou\xE9e1_17"
+    21300036: "bou\xE9e1_18"
+    21300038: "bou\xE9e1_19"
+    21300040: "bou\xE9e1_20"
+    21300042: "bou\xE9e1_21"
+    21300044: "bou\xE9e1_22"
+    21300046: "bou\xE9e1_23"
   serializedVersion: 2
   mipmaps:
     mipMapMode: 0
@@ -30,15 +54,14 @@ TextureImporter:
   maxTextureSize: 2048
   textureSettings:
     filterMode: -1
-    aniso: -1
+    aniso: 16
     mipBias: -1
     wrapMode: 1
   nPOTScale: 0
   lightmap: 0
   rGBM: 0
   compressionQuality: 50
-  allowsAlphaSplitting: 0
-  spriteMode: 1
+  spriteMode: 2
   spriteExtrude: 1
   spriteMeshType: 1
   alignment: 0
@@ -51,7 +74,319 @@ TextureImporter:
   buildTargetSettings: []
   spriteSheet:
     serializedVersion: 2
-    sprites: []
+    sprites:
+    - serializedVersion: 2
+      name: "bou\xE9e1_0"
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 114
+        width: 29
+        height: 38
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: "bou\xE9e1_1"
+      rect:
+        serializedVersion: 2
+        x: 29
+        y: 114
+        width: 29
+        height: 38
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: "bou\xE9e1_2"
+      rect:
+        serializedVersion: 2
+        x: 58
+        y: 114
+        width: 29
+        height: 38
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: "bou\xE9e1_3"
+      rect:
+        serializedVersion: 2
+        x: 87
+        y: 114
+        width: 29
+        height: 38
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: "bou\xE9e1_4"
+      rect:
+        serializedVersion: 2
+        x: 116
+        y: 114
+        width: 29
+        height: 38
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: "bou\xE9e1_5"
+      rect:
+        serializedVersion: 2
+        x: 145
+        y: 114
+        width: 29
+        height: 38
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: "bou\xE9e1_6"
+      rect:
+        serializedVersion: 2
+        x: 174
+        y: 114
+        width: 29
+        height: 38
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: "bou\xE9e1_7"
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 76
+        width: 29
+        height: 38
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: "bou\xE9e1_8"
+      rect:
+        serializedVersion: 2
+        x: 29
+        y: 76
+        width: 29
+        height: 38
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: "bou\xE9e1_9"
+      rect:
+        serializedVersion: 2
+        x: 58
+        y: 76
+        width: 29
+        height: 38
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: "bou\xE9e1_10"
+      rect:
+        serializedVersion: 2
+        x: 87
+        y: 76
+        width: 29
+        height: 38
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: "bou\xE9e1_11"
+      rect:
+        serializedVersion: 2
+        x: 116
+        y: 76
+        width: 29
+        height: 38
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: "bou\xE9e1_12"
+      rect:
+        serializedVersion: 2
+        x: 145
+        y: 76
+        width: 29
+        height: 38
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: "bou\xE9e1_13"
+      rect:
+        serializedVersion: 2
+        x: 174
+        y: 76
+        width: 29
+        height: 38
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: "bou\xE9e1_14"
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 38
+        width: 29
+        height: 38
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: "bou\xE9e1_15"
+      rect:
+        serializedVersion: 2
+        x: 29
+        y: 38
+        width: 29
+        height: 38
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: "bou\xE9e1_16"
+      rect:
+        serializedVersion: 2
+        x: 58
+        y: 38
+        width: 29
+        height: 38
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: "bou\xE9e1_17"
+      rect:
+        serializedVersion: 2
+        x: 87
+        y: 38
+        width: 29
+        height: 38
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: "bou\xE9e1_18"
+      rect:
+        serializedVersion: 2
+        x: 116
+        y: 38
+        width: 29
+        height: 38
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: "bou\xE9e1_19"
+      rect:
+        serializedVersion: 2
+        x: 145
+        y: 38
+        width: 29
+        height: 38
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: "bou\xE9e1_20"
+      rect:
+        serializedVersion: 2
+        x: 174
+        y: 38
+        width: 29
+        height: 38
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: "bou\xE9e1_21"
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 0
+        width: 29
+        height: 38
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: "bou\xE9e1_22"
+      rect:
+        serializedVersion: 2
+        x: 29
+        y: 0
+        width: 29
+        height: 38
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: "bou\xE9e1_23"
+      rect:
+        serializedVersion: 2
+        x: 58
+        y: 0
+        width: 29
+        height: 38
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
     outline: []
   spritePackingTag: 
   userData: 
