@@ -50,6 +50,7 @@ public class MovingObject : MonoBehaviour {
 
     public bool onCreate;
 
+
     void Awake()
     {
         onCreate = true;
@@ -89,7 +90,8 @@ public class MovingObject : MonoBehaviour {
         if (onCreate)
         {
             onCreate = false;
-            soundSoundSound.LoadSound(GetComponent<Animator>().runtimeAnimatorController.name, gameObject);
+
+
         }
         if (moveRefreshCooldown <= 0.0f)
         {

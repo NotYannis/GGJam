@@ -65,11 +65,11 @@ public class TimeOfDay : MonoBehaviour {
 
     public void Notify_EnteredScene(GameObject go)
     {
-        materialsWithNightDayShader.Add(go.name, go.GetComponent<Renderer>().material);
+        materialsWithNightDayShader.Add(go.name+go.GetInstanceID(), go.GetComponent<Renderer>().material);
     }
     public void Notify_ExitedScene(GameObject go)
     {
-        materialsWithNightDayShader.Remove(go.name);
+        materialsWithNightDayShader.Remove(go.name + go.GetInstanceID());
     }
 
     public float GetTimeOfDay()
