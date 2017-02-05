@@ -25,6 +25,7 @@ public class Mover : MonoBehaviour {
     public string waveCode;
 
     protected bool moving = true;
+    protected bool moveFreely = true;
 
     public float movingTime;
     protected float movingTimeCooldown;
@@ -38,6 +39,7 @@ public class Mover : MonoBehaviour {
 
     protected Bounds bound;
     protected Rigidbody2D rig;
+    protected MoverManager manager;
 
     protected virtual void Move() {
         rig.velocity = velocity;
@@ -63,6 +65,13 @@ public class Mover : MonoBehaviour {
         }
     }
 
+    public void GoAwayTime()
+    {
+        rig.velocity = Vector2.zero;
+        Invoke("GoAway", Random.Range(0.0f, 10.0f));
+    }
+
+    protected virtual void GoAway(){ }
 
     protected bool getStopMoving()
     {

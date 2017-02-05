@@ -4,7 +4,7 @@ using System.Collections.Generic;
 
 public class TimeOfDay : MonoBehaviour {
     public float GameStartingHour = 10;
-    public float fullDayCycleDuration = 5.0f;
+    public float fullDayCycleDuration = 5.0f; //Normal is 240
     public float Dayrise = 6;
     public float NightfallHour = 18.5f;
     public Texture TimeOfDayLightColorRamp;

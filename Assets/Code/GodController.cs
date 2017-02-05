@@ -21,6 +21,10 @@ public class GodController : MonoBehaviour {
     private MoverManager movers;
 
     private AudioSource armAudioFeedback;
+
+    public float calmSeaTime = 5.0f; //will send a "0" wave sometimes when no waves are sends
+    public float calmSeaCooldown;
+
     // Use this for initialization
     void Awake()
     {
@@ -30,9 +34,7 @@ public class GodController : MonoBehaviour {
         movers = GameObject.Find("GameScripts").GetComponent<MoverManager>();
     }
     void Start () {
-        //waveChargeDebug = GameObject.Find("DEBUG/waveCharge").GetComponent<Text>();
-        //sea = GameObject.Find("Sea").GetComponent<SeaScript>();
-
+        calmSeaCooldown = calmSeaTime;
 
         godArmPosition = godArm.transform.position;
         crowd = GameObject.Find("GameScripts").GetComponent<CrowdController>();
@@ -56,6 +58,7 @@ public class GodController : MonoBehaviour {
         }
 
         if (Input.GetKeyUp(KeyCode.Space)){
+            calmSeaCooldown = calmSeaTime;
             gameObject.GetComponent<Animator>().SetBool("PrepareWave", false);
             wavePower = 0;
             godArm.transform.position = godArmPosition;
@@ -65,7 +68,17 @@ public class GodController : MonoBehaviour {
             chargingWaveObj = null;
         }
 
-	}
+        if (calmSeaCooldown >= 0.0f)
+        {
+            calmSeaCooldown -= Time.deltaTime;
+        }
+        else
+        {
+            calmSeaCooldown = calmSeaTime;
+            movers.updateWavecombo("0");
+        }
+
+    }
 
     void SpawnWave()
     {

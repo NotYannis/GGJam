@@ -16,14 +16,12 @@ public class WavelingObject : MonoBehaviour {
     EWaveloingObj state;
 
     Waveling_Render waveRend;
-    // Use this for initialization
 
       void Awake()
     {
          state = EWaveloingObj.Spawning;
     }
     void Start () {
-      
         waveRend = transform.Find("Waveling").GetComponent<Waveling_Render>();
 	}
 	
@@ -53,9 +51,6 @@ public class WavelingObject : MonoBehaviour {
             power += Time.deltaTime * growthFactor;
             waveRend.UpdateWaveGrowing(power / maxWavePower);
         }
-
-
-
     }
 
     public void INIT(MoverManager _movers, float _maxWavePower, float _growthFactor, float _waveDeathPosX)

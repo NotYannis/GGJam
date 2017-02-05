@@ -8,11 +8,10 @@ public class UnderSeaMover : Mover
 
     void Awake()
     {
+        manager = GameObject.Find("GameScripts").GetComponent<MoverManager>();
         bound = GameObject.Find("SpawnZones/UnderSea").GetComponent<BoxCollider2D>().bounds;
         rig = GetComponent<Rigidbody2D>();
-        transform.position = bound.center;
         baseVelocity = velocity;
-
 
         if (comesFromLeft)
         {
@@ -47,9 +46,15 @@ public class UnderSeaMover : Mover
         {
             notMovingTimeCooldown -= Time.deltaTime;
         }
-
-        Move();
-        CheckBounds();
+        if (moveFreely)
+        {
+            Move();
+            CheckBounds();
+        }
+        else
+        {
+            GoAway();
+        }
     }
 
     protected override void Move()
@@ -73,5 +78,28 @@ public class UnderSeaMover : Mover
         rig.velocity = velocity;
 
         transform.localScale = new Vector2(Mathf.Sign(velocity.x), transform.localScale.y);
+    }
+
+    protected override void GoAway()
+    {
+        moveFreely = false;
+        Vector3 target = Vector3.zero;
+        if (comesFromLeft)
+        {
+            target = new Vector3(bound.min.x, bound.center.y, 0.0f);
+        }
+        else
+        {
+            target = new Vector3(bound.max.x, bound.center.y, 0.0f);
+        }
+        if (transform.position != target)
+        {
+            transform.position = Vector3.MoveTowards(transform.position, target, Time.deltaTime * 2.0f);
+        }
+        else
+        {
+            manager.DeleteMover(this);
+            Destroy(gameObject);
+        }
     }
 }

@@ -8,6 +8,8 @@ public class MoverManager : MonoBehaviour {
     public Dictionary<string, BeachMover> beachMoverPool;
     public Dictionary<string, UnderSeaMover> underSeaMoverPool;
 
+    public List<Mover> moversOutside;
+
     public GameObject beachZone;
     public GameObject underSeaZone;
     public GameObject skyZone;
@@ -18,13 +20,17 @@ public class MoverManager : MonoBehaviour {
     private float waveComboTimer = 5.0f;
     private float waveComboCooldown;
 
+
+    private Schedule previousSchedule;
     private TimeOfDay tod;
 
     // Use this for initialization
     void Awake()
     {
+
         tod = GameObject.Find("GAME").GetComponent<TimeOfDay>();
 
+        moversOutside = new List<Mover>();
         beachMoverPool = new Dictionary<string, BeachMover>();
         underSeaMoverPool = new Dictionary<string, UnderSeaMover>();
 
@@ -49,7 +55,6 @@ public class MoverManager : MonoBehaviour {
 	
 	// Update is called once per frame
 	void Update () {
-        Debug.Log(tod.GetSchedule());
 		if(waveComboCooldown > 0.0f)
         {
             waveComboCooldown -= Time.deltaTime;
@@ -79,11 +84,22 @@ public class MoverManager : MonoBehaviour {
 
     private void updateCrowd()
     {
+        if (previousSchedule != tod.GetSchedule())
+        {
+            foreach(Mover m in moversOutside)
+            {
+                m.GoAwayTime();
+            }
+        }
+
+        previousSchedule = tod.GetSchedule();
+
         if (beachMoverPool.ContainsKey(currentWaveCode))
         {
             if(beachMoverPool[currentWaveCode].schedule == tod.GetSchedule())
             {
-                Instantiate(beachMoverPool[currentWaveCode]);
+                BeachMover newMover = Instantiate(beachMoverPool[currentWaveCode]);
+                moversOutside.Add(newMover);
             }
         }
 
@@ -91,11 +107,16 @@ public class MoverManager : MonoBehaviour {
         {
             if(underSeaMoverPool[currentWaveCode].schedule == tod.GetSchedule())
             {
-                Instantiate(underSeaMoverPool[currentWaveCode]);
+                UnderSeaMover newMover = Instantiate(underSeaMoverPool[currentWaveCode]);
+                moversOutside.Add(newMover);
             }
         }
 
         currentWaveCode = "";
-        Debug.Log("crowded");
+    }
+
+    public void DeleteMover(Mover mover)
+    {
+        bool deleted = moversOutside.Remove(mover);
     }
 }
