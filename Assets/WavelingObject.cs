@@ -4,9 +4,12 @@ using System.Collections;
 public class WavelingObject : MonoBehaviour {
     public float waveSpeed;
     float waveStopPosition;
-    public float growthFactor = 0.5f;
+    public float growthFactor;
+    private string waveCode;
 
     private CrowdController crowd;
+    private MoverManager movers;
+
     float power;
     float maxWavePower;
     enum EWaveloingObj { Spawning, Growing, Running, Dying };
@@ -30,7 +33,7 @@ public class WavelingObject : MonoBehaviour {
         {
             if (transform.position.x < waveStopPosition)
             {
-                crowd.UpdateJauges(power);
+                movers.updateWavecombo(waveCode);
 
                 waveRend.Kill();
                 Destroy(gameObject, 1f);
@@ -44,29 +47,46 @@ public class WavelingObject : MonoBehaviour {
 
             }
         }
-
-
+        
         if (state == EWaveloingObj.Growing && power <= maxWavePower)
         {
             power += Time.deltaTime * growthFactor;
             waveRend.UpdateWaveGrowing(power / maxWavePower);
-            
         }
 
 
 
     }
 
-    public void INIT(CrowdController crowdContrl, float _maxWavePower, float _waveDeathPosX)
+    public void INIT(MoverManager _movers, float _maxWavePower, float _growthFactor, float _waveDeathPosX)
     {
-        crowd = crowdContrl;
+        growthFactor = _growthFactor;
+        movers = _movers;
         maxWavePower = _maxWavePower;
         waveStopPosition = _waveDeathPosX;
         state = EWaveloingObj.Growing;
         power = 0;
     }
+
     public void Release()
     {
         state = EWaveloingObj.Running;
+
+        if(power < 0.5f)
+        {
+            waveCode = "1";
+        }
+        else if(power < 1.0f)
+        {
+            waveCode = "2";
+        }
+        else if(power < 1.5f)
+        {
+            waveCode = "3";
+        }
+        else
+        {
+            waveCode = "4";
+        }
     }
 }

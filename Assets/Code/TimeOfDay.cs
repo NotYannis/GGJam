@@ -85,7 +85,7 @@ public class TimeOfDay : MonoBehaviour {
     public Schedule GetSchedule()
     {
         Schedule schedule;
-        if(GetHour() > NightfallHour && GetHour() < Dayrise)
+        if(GetHour() > NightfallHour || GetHour() < Dayrise)
         {
             schedule = Schedule.Night;
         }

@@ -7,6 +7,7 @@ public class GodController : MonoBehaviour {
     private Text waveChargeDebug;
     private GameObject godArm;
     public SeaScript sea;
+    public float waveGrowthFactor = 1.0f;
     public float maxWavePower = 1.5f;
 
     WavelingObject chargingWave;
@@ -17,6 +18,7 @@ public class GodController : MonoBehaviour {
     public Transform waveEndPosition;
     private Vector3 godArmPosition;
     private CrowdController crowd;
+    private MoverManager movers;
 
     private AudioSource armAudioFeedback;
     // Use this for initialization
@@ -25,6 +27,7 @@ public class GodController : MonoBehaviour {
         wavePlaceHolder = Resources.Load("Prefabs/WavePH") as GameObject;
         armAudioFeedback = GetComponent<AudioSource>();
         godArm = GameObject.Find("Arm");
+        movers = GameObject.Find("GameScripts").GetComponent<MoverManager>();
     }
     void Start () {
         //waveChargeDebug = GameObject.Find("DEBUG/waveCharge").GetComponent<Text>();
@@ -69,6 +72,6 @@ public class GodController : MonoBehaviour {
         if (wavePlaceHolder== null) { Debug.Log("FUCK"); }
         chargingWaveObj = Instantiate(wavePlaceHolder, waveStartPosition.position, Quaternion.identity) as GameObject;
         chargingWave = chargingWaveObj.GetComponent<WavelingObject>();
-        chargingWave.INIT(crowd, maxWavePower, waveEndPosition.position.x);
+        chargingWave.INIT(movers, maxWavePower, waveGrowthFactor, waveEndPosition.position.x);
     }
 }

@@ -21,11 +21,11 @@ public enum State
     Dead,
 }
 
-public enum Schedule
+/*public enum Schedule
 {
     Day,
     Night,
-}
+}*/
 
 public class MovingObject : MonoBehaviour {
     public Type type;

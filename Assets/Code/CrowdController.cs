@@ -60,8 +60,6 @@ public class CrowdController : MonoBehaviour {
             objectCreation.DeleteObject(Type.StrongUnderSea, globalTime.GetSchedule());
             objectCreation.DeleteObject(Type.Sky, globalTime.GetSchedule());
             objectCreation.DeleteObject(Type.IntoSea, globalTime.GetSchedule());
-
-             
         }
         else
         {
