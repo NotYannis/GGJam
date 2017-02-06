@@ -8,33 +8,22 @@ public class UnderSeaMover : Mover
 
     void Awake()
     {
-        manager = GameObject.Find("GameScripts").GetComponent<MoverManager>();
+        INIT(true);
+
         bound = GameObject.Find("SpawnZones/UnderSea").GetComponent<BoxCollider2D>().bounds;
-        rig = GetComponent<Rigidbody2D>();
-        baseVelocity = velocity;
+        rig.centerOfMass = GetComponent<SpriteRenderer>().sprite.pivot;
 
         if (comesFromLeft)
         {
-            transform.position = new Vector3(bound.min.x, bound.center.y, 0.0f);
+            transform.position = new Vector3(bound.min.x, bound.min.y, 0.0f);
         }
         else
         {
-            transform.position = new Vector3(bound.max.x, bound.center.y, 0.0f);
+            transform.position = new Vector3(bound.max.x, bound.min.y, 0.0f);
             transform.localScale = new Vector2(transform.localScale.x * -1, transform.localScale.y);
         }
-
-        movingTimeCooldown = movingTime;
-
-        rig.velocity = velocity;
     }
 
-    // Use this for initialization
-    void Start()
-    {
-
-    }
-
-    // Update is called once per frame
     void Update()
     {
         if (!getStopMoving())
@@ -74,12 +63,11 @@ public class UnderSeaMover : Mover
 
             movingTimeCooldown = Random.Range(movingTime / 4, movingTime);
         }
-
-        rig.velocity = velocity;
+        rig.velocity = new Vector2(velocity.x, rig.velocity.y);
 
         transform.localScale = new Vector2(Mathf.Sign(velocity.x), transform.localScale.y);
     }
-
+    
     protected override void GoAway()
     {
         moveFreely = false;
@@ -101,5 +89,32 @@ public class UnderSeaMover : Mover
             manager.DeleteMover(this);
             Destroy(gameObject);
         }
+    }
+
+    protected override void CheckBounds()
+    {
+        if (transform.position.y < bound.min.y)
+        {
+            rig.velocity = new Vector2(rig.velocity.x, rig.velocity.y - ((transform.position.y - bound.min.y) * (rig.mass*2)));
+        }
+
+        if (transform.position.x > bound.max.x)
+        {
+            velocity.x += (bound.max.x - transform.position.x) * 0.08f;
+        }
+        if (transform.position.x < bound.min.x)
+        {
+            velocity.x -= (transform.position.x - bound.min.x) * 0.08f;
+        }
+    }
+
+    void OnCollisionEnter2D(Collision2D coll)
+    {
+        rig.constraints = RigidbodyConstraints2D.FreezePositionX | RigidbodyConstraints2D.FreezeRotation;
+    }
+
+    void OnCollisionExit2D(Collision2D coll)
+    {
+        rig.constraints = RigidbodyConstraints2D.FreezeRotation;
     }
 }

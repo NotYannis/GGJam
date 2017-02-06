@@ -41,6 +41,22 @@ public class Mover : MonoBehaviour {
     protected Rigidbody2D rig;
     protected MoverManager manager;
 
+    protected void INIT(bool destroyTime)
+    {
+        manager = GameObject.Find("GAME").GetComponent<MoverManager>();
+        rig = GetComponent<Rigidbody2D>();
+        baseVelocity = velocity;
+
+        movingTimeCooldown = movingTime;
+
+        rig.velocity = velocity;
+
+        if (destroyTime)
+        {
+            Invoke("GoAwayTime", Random.Range(40.0f, 60.0f));
+        }
+    }
+
     protected virtual void Move() {
         rig.velocity = velocity;
     }
@@ -65,7 +81,7 @@ public class Mover : MonoBehaviour {
         }
     }
 
-    public void GoAwayTime()
+    public virtual void GoAwayTime()
     {
         rig.velocity = Vector2.zero;
         Invoke("GoAway", Random.Range(0.0f, 10.0f));

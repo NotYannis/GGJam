@@ -6,24 +6,25 @@ public class TOD_Enabled : MonoBehaviour {
     public float DisableAtTOD;
 
     ParticleSystem PS;
+    ParticleSystem.EmissionModule EM;
     TimeOfDay TOD;
     bool isEnabled;
 	// Use this for initialization
 	void Start () {
         TOD = GameObject.Find("GAME").GetComponent<TimeOfDay>() as TimeOfDay;
         PS = GetComponent<ParticleSystem>();
+        EM = PS.emission;
 
         float hour = TOD.GetHour();
         if (hour > EnableAtTOD && hour < (EnableAtTOD + 0.4f))
         {
             isEnabled = true;
-            PS.enableEmission = true;
-
+            EM.enabled = true;
         }
         else 
         {
             isEnabled = false;
-            PS.enableEmission = false;
+            EM.enabled = false;
 
         }
 
@@ -36,12 +37,12 @@ public class TOD_Enabled : MonoBehaviour {
         if (!isEnabled && hour > EnableAtTOD && hour < (EnableAtTOD + 0.4f))
         {
             isEnabled = true;
-            PS.enableEmission = true;
+            EM.enabled = true;
         }
         else if (isEnabled && hour > DisableAtTOD && hour < (DisableAtTOD + 0.4f))
         {
             isEnabled = false;
-            PS.enableEmission = false;
+            EM.enabled = false;
         }
 
 	}

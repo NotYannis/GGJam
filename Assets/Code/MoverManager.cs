@@ -5,25 +5,30 @@ using UnityEngine;
 
 public class MoverManager : MonoBehaviour {
     
-    public Dictionary<string, BeachMover> beachMoverPool;
-    public Dictionary<string, UnderSeaMover> underSeaMoverPool;
+    private Dictionary<string, BeachMover> beachMoverPool;
+    private Dictionary<string, UnderSeaMover> underSeaMoverPool;
 
-    public List<Mover> moversOutside;
+    private List<SkyMover> nightSkyMoverPool;
+    private List<SkyMover> daySkyMoverPool;
 
-    public GameObject beachZone;
-    public GameObject underSeaZone;
-    public GameObject skyZone;
-    public GameObject intoSeaZone;
+    private List<IntoSeaMover> nightSeaMoverPool;
+    private List<IntoSeaMover> daySeaMoverPool;
+
+    private List<Mover> moversOutside;
 
     private string currentWaveCode = "";
 
-    private float waveComboTimer = 5.0f;
+    public float waveComboTimer = 5.0f;
     private float waveComboCooldown;
 
+    public float createSkyMoverTime = 50.0f;
+    private float createSkyMoverCooldown;
+    public float createSeaMoverTime = 20.0f;
+    private float createSeaMoverCooldown;
 
     private Schedule previousSchedule;
     private TimeOfDay tod;
-
+    
     // Use this for initialization
     void Awake()
     {
@@ -33,6 +38,11 @@ public class MoverManager : MonoBehaviour {
         moversOutside = new List<Mover>();
         beachMoverPool = new Dictionary<string, BeachMover>();
         underSeaMoverPool = new Dictionary<string, UnderSeaMover>();
+        daySkyMoverPool = new List<SkyMover>();
+        nightSkyMoverPool = new List<SkyMover>();
+        daySeaMoverPool = new List<IntoSeaMover>();
+        nightSeaMoverPool = new List<IntoSeaMover>();
+
 
         GameObject[] beachMovers = Resources.LoadAll("Prefabs/Beach").Cast<GameObject>().ToArray();
         foreach(GameObject mover in beachMovers)
@@ -47,13 +57,36 @@ public class MoverManager : MonoBehaviour {
             UnderSeaMover underSeaM = mover.GetComponent<UnderSeaMover>();
             underSeaMoverPool.Add(underSeaM.waveCode, underSeaM);
         }
+
+        GameObject[] skyMovers = Resources.LoadAll("Prefabs/Sky").Cast<GameObject>().ToArray();
+        foreach (GameObject mover in skyMovers)
+        {
+            SkyMover skyM = mover.GetComponent<SkyMover>();
+            if (skyM.schedule == Schedule.Day)
+            {
+                daySkyMoverPool.Add(skyM);
+            }
+            else
+            {
+                nightSkyMoverPool.Add(skyM);
+            }
+        }
+
+        GameObject[] seaMovers = Resources.LoadAll("Prefabs/IntoSea").Cast<GameObject>().ToArray();
+        foreach (GameObject mover in seaMovers)
+        {
+            IntoSeaMover seaM = mover.GetComponent<IntoSeaMover>();
+            if (seaM.schedule == Schedule.Day)
+            {
+                daySeaMoverPool.Add(seaM);
+            }
+            else
+            {
+                nightSeaMoverPool.Add(seaM);
+            }
+        }
     }
 
-    void Start() {
-
-	}
-	
-	// Update is called once per frame
 	void Update () {
 		if(waveComboCooldown > 0.0f)
         {
@@ -63,10 +96,44 @@ public class MoverManager : MonoBehaviour {
         {
             if(currentWaveCode != "")
             {
-                updateCrowd();
+                UpdateCrowd();
             }
         }
-	}
+
+        if(createSkyMoverCooldown > 0.0f)
+        {
+            createSkyMoverCooldown -= Time.deltaTime;
+        }
+        else
+        {
+            createSkyMoverCooldown = Random.Range(createSkyMoverTime / 4, createSkyMoverTime);
+            if(tod.GetSchedule() == Schedule.Day)
+            {
+                Instantiate(daySkyMoverPool[Random.Range(0, daySkyMoverPool.Count)]);
+            }
+            else
+            {
+                Instantiate(nightSkyMoverPool[Random.Range(0, nightSkyMoverPool.Count)]);
+            }
+        }
+
+        if (createSeaMoverCooldown > 0.0f)
+        {
+            createSeaMoverCooldown -= Time.deltaTime;
+        }
+        else
+        {
+            createSeaMoverCooldown = Random.Range(createSeaMoverTime / 4, createSeaMoverTime);
+            if (tod.GetSchedule() == Schedule.Day)
+            {
+                Instantiate(daySeaMoverPool[Random.Range(0, daySeaMoverPool.Count)]);
+            }
+            else
+            {
+                Instantiate(nightSeaMoverPool[Random.Range(0, nightSeaMoverPool.Count)]);
+            }
+        }
+    }
 
     public void updateWavecombo(string waveCode)
     {
@@ -77,12 +144,12 @@ public class MoverManager : MonoBehaviour {
         if(currentWaveCode.Length >= 4)
         {
             Debug.Log(currentWaveCode);
-            updateCrowd();
+            UpdateCrowd();
         }
 
     }
 
-    private void updateCrowd()
+    private void UpdateCrowd()
     {
         if (previousSchedule != tod.GetSchedule())
         {
@@ -117,6 +184,6 @@ public class MoverManager : MonoBehaviour {
 
     public void DeleteMover(Mover mover)
     {
-        bool deleted = moversOutside.Remove(mover);
+        moversOutside.Remove(mover);
     }
 }

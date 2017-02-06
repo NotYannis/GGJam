@@ -7,7 +7,6 @@ public class WavelingObject : MonoBehaviour {
     public float growthFactor;
     private string waveCode;
 
-    private CrowdController crowd;
     private MoverManager movers;
 
     float power;

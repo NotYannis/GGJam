@@ -6,7 +6,6 @@ public class GodController : MonoBehaviour {
     private float wavePower = 0;
     private Text waveChargeDebug;
     private GameObject godArm;
-    public SeaScript sea;
     public float waveGrowthFactor = 1.0f;
     public float maxWavePower = 1.5f;
 
@@ -17,7 +16,6 @@ public class GodController : MonoBehaviour {
     public Transform waveStartPosition;
     public Transform waveEndPosition;
     private Vector3 godArmPosition;
-    private CrowdController crowd;
     private MoverManager movers;
 
     private AudioSource armAudioFeedback;
@@ -31,13 +29,13 @@ public class GodController : MonoBehaviour {
         wavePlaceHolder = Resources.Load("Prefabs/WavePH") as GameObject;
         armAudioFeedback = GetComponent<AudioSource>();
         godArm = GameObject.Find("Arm");
-        movers = GameObject.Find("GameScripts").GetComponent<MoverManager>();
+        movers = GameObject.Find("GAME").GetComponent<MoverManager>();
     }
+
     void Start () {
         calmSeaCooldown = calmSeaTime;
 
         godArmPosition = godArm.transform.position;
-        crowd = GameObject.Find("GameScripts").GetComponent<CrowdController>();
     }
 	
 	// Update is called once per frame
@@ -52,9 +50,8 @@ public class GodController : MonoBehaviour {
             }
 
             gameObject.GetComponent<Animator>().SetBool("PrepareWave", true);
-            wavePower += (Time.deltaTime/2);
-            godArm.transform.position = new Vector3(godArm.transform.position.x, godArm.transform.position.y + wavePower / 100, godArm.transform.position.z);
-            
+            wavePower += waveGrowthFactor * Time.deltaTime;
+            godArm.transform.position = new Vector3(godArm.transform.position.x, godArm.transform.position.y + wavePower / 60, godArm.transform.position.z);
         }
 
         if (Input.GetKeyUp(KeyCode.Space)){

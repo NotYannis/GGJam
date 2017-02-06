@@ -8,7 +8,8 @@ public class BeachMover : Mover {
 
     void Awake()
     {
-        manager = GameObject.Find("GameScripts").GetComponent<MoverManager>();
+        INIT(true);
+
         bounds = new Bounds[2];
         BoxCollider2D[] colliders = GameObject.Find("SpawnZones/Beach").GetComponents<BoxCollider2D>();
 
@@ -17,21 +18,11 @@ public class BeachMover : Mover {
             bounds[i] = colliders[i].bounds;
         }
 
-        rig = GetComponent<Rigidbody2D>();
 
-        transform.position = new Vector2(Random.Range(bounds[0].min.x, bounds[0].max.x), Random.Range(bounds[0].min.y, bounds[0].max.y));
-
-        baseVelocity = velocity;
-
-        movingTimeCooldown = movingTime;
+        transform.position = new Vector2(Random.Range(bounds[0].min.x, bounds[0].max.x),
+                                         Random.Range(bounds[0].min.y, bounds[0].max.y));
     }
-
-	// Use this for initialization
-	void Start () {
-		
-	}
 	
-	// Update is called once per frame
 	void Update () {
         if (!getStopMoving())
         {
